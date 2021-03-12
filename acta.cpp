@@ -1,4 +1,8 @@
 #include "acta.h"
 
+//CONSTRUCTOR CLASE ACTA
 
-//pendiente
+//por defecto
+Acta::Acta(){}
+
+

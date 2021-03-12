@@ -1,3 +1,6 @@
 #include "persona.h"
 
-//pendiente
+//CONSTRUCTOR CLASE PERSONA
+
+//por defecto
+Persona::Persona(){}

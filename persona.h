@@ -13,9 +13,23 @@ using std::string;
 using std::list;
 
 
+enum clasePersonaEvaluar{
+    interno, externo
+};
+
+
 class Persona{
     private:
+        string nombre;
+        string identificacion;
+        string email;
+        string celular;
+        clasePersonaEvaluar clasePersona;
+        list<int> codigoActasJurado; //o dejarlo como acta NOSEEEE
+        list<int> codigoActasDirector;
 
+    public:
+        Persona();
 };
 
 

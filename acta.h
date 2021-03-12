@@ -1,11 +1,11 @@
 #ifndef ACTA_H
 #define ACTA_H
 
-
 #include <iostream>
 #include <list>
 #include <string>
 
+#include "criterio.h"
 #include "persona.h"
 
 using std::cin;

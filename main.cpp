@@ -8,6 +8,12 @@ using std::endl;
 using std::string;
 using std::list;
 
+//PARA RECORDAR
+/*
+cout << "Escribe tu nombre : ";
+   string nombre;
+   getline(cin, nombre);
+*/
 
 int menu()
 {
