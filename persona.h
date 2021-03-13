@@ -15,6 +15,7 @@ using std::list;
 
 enum clasePersonaEvaluar{
     interno, externo
+    //interno =0, externo = 1
 };
 
 
@@ -25,11 +26,11 @@ class Persona{
         string email;
         string celular;
         clasePersonaEvaluar clasePersona;
-        list<int> codigoActasJurado; //o dejarlo como acta NOSEEEE
-        list<int> codigoActasDirector;
 
     public:
         Persona();
+        Persona( string, string, string, string, clasePersonaEvaluar );
+        void mostrarPersona();
 };
 
 

@@ -5,6 +5,8 @@
 #include <list>
 #include <string>
 
+//PENDIENTE: HACER LA SEPARACION DE CRITERIO Y DETALLE CRITERIO
+
 
 using std::cin;
 using std::cout;

@@ -2,6 +2,8 @@
 #include <string>
 #include <list>
 
+#include "posgrado.h"
+
 using std::cin;
 using std::cout;
 using std::endl;
@@ -22,7 +24,7 @@ int menu()
               << endl;
     cout << "1. Crear acta de grado" << endl;
     cout << "2. Modificar acta de grado" << endl;
-    cout << "3. En proceso" << endl;
+    cout << "3. Mostrar lista Personas" << endl;
     cout << "4. En proceso" << endl;
     cout << "5. En proceso" << endl;
     cout << "0. Salir\n"
@@ -33,9 +35,28 @@ int menu()
 }
 
 int main(){
-    int op;
+    int opcion, i;
+    Posgrado ingeSoft;
 
-    op =menu();
+    do
+    {
+        opcion = menu();
+        switch (opcion)
+        {
+        case 0:
+            break;
+        case 1:
+            laFarra.agregarProducto();
+            break;
+
+        default:
+            cout << "\nNumero invalido\n"
+                      << endl;
+            break;
+        }
+    } while (opcion != 0);
+
+    
 
 
 }

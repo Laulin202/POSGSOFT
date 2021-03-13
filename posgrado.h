@@ -24,8 +24,10 @@ class Posgrado{
     private:
         vector<Acta> listaActas;      ////// vectores para hacer la busqueda mas facil 
         vector<Persona> listaPersonas;  ///////
+        void setDummyData();
     public:
         Posgrado();
+        void mostrarListaPersonas();
 };
 
 
