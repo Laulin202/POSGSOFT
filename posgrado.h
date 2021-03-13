@@ -7,6 +7,7 @@
 #include <list>
 #include <string>
 #include <vector>
+#include <ctime>
 
 #include "acta.h"
 #include "persona.h"
@@ -26,6 +27,9 @@ class Posgrado{
         vector<Persona> listaPersonas;  ///////
     public:
         Posgrado();
+        void crearActa();
+        void mostrarListaPersonas();
+        void crearInformacionPersona();
 };
 
 

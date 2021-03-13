@@ -4,6 +4,7 @@
 #include <iostream>
 #include <list>
 #include <string>
+#include <vector>
 
 #include "criterio.h"
 #include "persona.h"
@@ -13,6 +14,7 @@ using std::cout;
 using std::endl;
 using std::string;
 using std::list;
+using std::vector;
 
 
 //enum tipoTrabajo
@@ -46,12 +48,15 @@ class Acta{
         Persona codirector; //PENDIENTE LA CLASE PERSONA
         Persona jurado1; //PENDIENTE LA CLASE PERSONA
         Persona jurado2; //PENDIENTE LA CLASE PERSONA
-        list<Criterio> listaCriterios;//PENDIENTE LA CLASE CRITERIO no sabemos si usaremos vectores 
+        vector<Criterio> listaCriterios; 
         float notaFinal;
-        estado estado;
+        estado estadoActa;
         estadoCalificacionActa estadoCalificacion;
+        void inicializarListaCriterios();
     public:
-        Acta(); //pendiente el constuctor 
+        Acta(); 
+        Acta(int, string, string, string, tipoTrabajoGrado, string, Persona, Persona, Persona, Persona); //pendiente directores y jurados
+        void mostrarCriterios(); //funcion de prueba
 };
 
 
