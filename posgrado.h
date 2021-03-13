@@ -7,6 +7,7 @@
 #include <list>
 #include <string>
 #include <vector>
+#include <ctime>
 
 #include "acta.h"
 #include "persona.h"
@@ -27,7 +28,9 @@ class Posgrado{
         void setDummyData();
     public:
         Posgrado();
+        void crearActa();
         void mostrarListaPersonas();
+        void crearInformacionPersona();
 };
 
 
