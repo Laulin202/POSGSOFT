@@ -48,7 +48,7 @@ int main(){
             break;
         case 2:
             cout << "\n";
-            cout << "En proceso" << endl;
+            javeriana.modificarActa();
             cout << "\n";
             break;
         case 3:

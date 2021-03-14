@@ -178,7 +178,13 @@ void Posgrado::mostrarListaActas(){
 
 Acta* Posgrado::buscarActa( int numero){
     Acta* p_acta;
-
+    for( int i = 0; i < this->listaActas.size(); i++){
+        if( numero == listaActas[i].getNumero()){ //PENDIENTE Funcion getNumero
+            p_acta = &this->listaActas[i];
+            break;
+        }
+    }
+    return p_acta;
 }
 
 
@@ -186,23 +192,27 @@ void Posgrado::modificarActa(){
     int opcion, numero;
     Acta * pActa;
 
+
     cout << "-----------MODIFICAR ACTA-------------" << endl;
 
     cout << " Digite el codigo del acta a modificar: " << endl;
     cin >> numero;
+    pActa = this->buscarActa( numero );
+    pActa->mostrarActa();
     //funcion buscarActa;
 
     cout << " ¿Que desea hacer con el acta de evaluacion? " << endl;
+    cout << "====================" << endl;
+    cout << "1. Diligenciar Acta." << endl;
     cin >> opcion;
 
     //Aqui se dividen las opciones donde se pueden hacer con el acta :)
-    cout << "====================" << endl;
-    cout << "1. Diligenciar Acta." << endl;
+
 
 
     switch (opcion){
         case 1:
-
+            pActa->diligenciarCriterios();
         break;
     
         default:
@@ -210,3 +220,11 @@ void Posgrado::modificarActa(){
     }
 
 }
+
+/*
+Criterio criterio;
+        float calificacionJurado1;
+        float calificacionJurado2;
+        float promedioCalificacion;
+        string observacion; /
+*/

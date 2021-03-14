@@ -16,3 +16,7 @@ Criterio::Criterio(int identificador, float porcentajePonderacion, string descri
 void Criterio::mostrarCriterio(){
     cout << this->identificador << ". " << this->descripcion << "\nPorcentaje de ponderacion: " << this->porcentajePonderacion * 100 << "%" << endl;
 }
+
+float Criterio::getPorcentajePonderacion(){
+    return this->porcentajePonderacion;
+}

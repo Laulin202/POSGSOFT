@@ -60,6 +60,8 @@ class Acta{
         Acta(int, string, string, string, tipoTrabajoGrado, string, Persona, Persona, Persona, Persona); //pendiente directores y jurados
         void mostrarCriterios(); //funcion de prueba
         void mostrarActa();
+        int getNumero();
+        void diligenciarCriterios();
 };
 
 
