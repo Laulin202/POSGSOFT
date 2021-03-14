@@ -76,7 +76,7 @@ void Posgrado::crearActa(){
             this->crearInformacionPersona();
             codirector = this->listaPersonas.back();
         } else{
-            codirector = this->listaPersonas[selec - 1]; 
+            codirector = this->listaPersonas[selec - 1];
         }
     } else{
         Persona codirectorFantasma;
@@ -198,20 +198,14 @@ void Posgrado::modificarActa(){
     //Aqui se dividen las opciones donde se pueden hacer con el acta :)
     cout << "====================" << endl;
     cout << "1. Diligenciar Acta." << endl;
-    cout <<
-
-
-
-
-
 
 
     switch (opcion){
-    case 1:
+        case 1:
 
         break;
     
-    default:
+        default:
         break;
     }
 

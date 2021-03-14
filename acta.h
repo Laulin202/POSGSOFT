@@ -7,6 +7,7 @@
 #include <vector>
 
 #include "criterio.h"
+#include "detalleCriterio.h"
 #include "persona.h"
 
 using std::cin;
@@ -48,7 +49,8 @@ class Acta{
         Persona codirector; //PENDIENTE LA CLASE PERSONA
         Persona jurado1; //PENDIENTE LA CLASE PERSONA
         Persona jurado2; //PENDIENTE LA CLASE PERSONA
-        vector<Criterio> listaCriterios; 
+        vector<Criterio> listaCriterios;
+        vector<DetalleCriterio> listaDetallesCriterios;
         float notaFinal;
         estado estadoActa;
         estadoCalificacionActa estadoCalificacion;
