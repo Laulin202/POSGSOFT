@@ -28,7 +28,7 @@ class Persona{
         clasePersonaEvaluar clasePersona;
     public:
         Persona();
-	Persona( string, string, string, string, clasePersonaEvaluar );
+	    Persona( string, string, string, string, clasePersonaEvaluar );
         void mostrarPersona();
         void mostrarNombre();
 };

@@ -24,7 +24,7 @@ int menu(){
     cout << "1. Crear acta de grado" << endl;
     cout << "2. Modificar acta de grado" << endl;
     cout << "3. Mostrar lista Personas" << endl;
-    cout << "4. En proceso" << endl;
+    cout << "4. Mostrar lista actas " << endl;
     cout << "5. En proceso" << endl;
     cout << "0. Salir\n" << endl;
     cout << "Digita el numero: ";
@@ -34,9 +34,43 @@ int menu(){
 
 int main(){
     int opcion, i;
-    
     Posgrado javeriana;
-    javeriana.crearActa();
+
+    do
+    {
+        opcion = menu();
+        switch (opcion)
+        {
+        case 0:
+            break;
+        case 1:
+            javeriana.crearActa();
+            break;
+        case 2:
+            cout << "\n";
+            cout << "En proceso" << endl;
+            cout << "\n";
+            break;
+        case 3:
+            javeriana.mostrarListaPersonas();
+            break;
+        case 4:
+            cout << "\n";
+            javeriana.mostrarListaActas();
+            cout << "\n";
+            
+            break;
+        case 5:
+            
+            break;
+        default:
+            cout << "\nNumero invalido\n"
+                      << endl;
+            break;
+        }
+    } while (opcion != 0);
+
+   
 
     return 0;
 }

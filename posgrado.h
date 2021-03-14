@@ -1,7 +1,6 @@
 #ifndef POSGRADO_H
 #define POSGRADO_H
 
-//PENDIENTE: agregar la modalidad vector 
 
 #include <iostream>
 #include <list>
@@ -29,8 +28,11 @@ class Posgrado{
     public:
         Posgrado();
         void crearActa();
+        void modificarActa();
         void mostrarListaPersonas();
         void crearInformacionPersona();
+        void mostrarListaActas();
+        Acta* buscarActa( int ); //tiene que retornar un puntero a acta por que quiero que se actualice en la lista
 };
 
 

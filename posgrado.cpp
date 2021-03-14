@@ -36,6 +36,7 @@ void Posgrado::crearActa(){
 
     cout << "Ingrese el nombre del trabajo del acta de grado: ";
     getline(cin, nombreTrabajo);
+
     do{
         cout << "Seleccione el tipo de trabajo:\n0. Aplicado\n1. Investigacion" << endl;
         cin >> selec;
@@ -112,7 +113,7 @@ void Posgrado::crearActa(){
 } //Esta pendiente directores y jurados, debido a la clase Persona 
 
 //Nombre: mostrarListaPersonas 
-//Funcion muestra el nombre de las personas de la lista
+//Funcion muestra el nombre de las personas de la lista personas
 void Posgrado::mostrarListaPersonas(){
     if(this->listaPersonas.size() == 0){
         cout << "Por el momento no se encuentran personas registradas en el sistema, proceda a agregar." << endl;
@@ -164,3 +165,54 @@ void Posgrado::crearInformacionPersona(){
     
 } //Me adelante un poquito pues esta funcionalidad es de las ultimas que se piden, pero la vi necesaria para el crearActa
 
+void Posgrado::mostrarListaActas(){
+    if(this->listaActas.size() == 0){
+        cout << "Oops, parece que aun no hay ningun acta en el sistema, porfavor cree una e intente nuevamente." << endl;
+    }
+    else{
+        for( int i = 0; i < this->listaActas.size(); i++){
+            this->listaActas[i].mostrarActa();
+        }
+    }
+}
+
+Acta* Posgrado::buscarActa( int numero){
+    Acta* p_acta;
+
+}
+
+
+void Posgrado::modificarActa(){
+    int opcion, numero;
+    Acta * pActa;
+
+    cout << "-----------MODIFICAR ACTA-------------" << endl;
+
+    cout << " Digite el codigo del acta a modificar: " << endl;
+    cin >> numero;
+    //funcion buscarActa;
+
+    cout << " ¿Que desea hacer con el acta de evaluacion? " << endl;
+    cin >> opcion;
+
+    //Aqui se dividen las opciones donde se pueden hacer con el acta :)
+    cout << "====================" << endl;
+    cout << "1. Diligenciar Acta." << endl;
+    cout <<
+
+
+
+
+
+
+
+    switch (opcion){
+    case 1:
+
+        break;
+    
+    default:
+        break;
+    }
+
+}

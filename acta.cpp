@@ -18,6 +18,7 @@ Acta::Acta(int numero, string nombreTrabajo, string nombreEstudiante, string fec
     this->jurado2 = jurado2;
     this->estadoActa = abierto;
     this->estadoCalificacion = pendiente;
+    //inicializa los 8 criterios (seran los mismos siempre)
     this->inicializarListaCriterios();
 } //pendiente directores y jurados
 
@@ -74,4 +75,26 @@ void Acta::mostrarCriterios(){
     }
 } //funcion de prueba
 
+void Acta::mostrarActa(){
+
+    cout << "=================================================" << endl;
+    cout << "        "<< this->nombreTrabajo << "            "<< endl;
+    cout << " Estudiante: " << this->nombreEstudiante << endl;
+    cout << " Fecha: " << this->fecha << endl;
+    cout << " Tipo trabajo: " << this->tipoTrabajo << endl;
+    cout << " Periodo: " << this->periodo << endl;
+    cout << " Director: ";
+    this->director.mostrarNombre();
+    cout << " Codirector: ";
+    this->codirector.mostrarNombre();
+    cout << " Jurado 1: ";
+    this->jurado1.mostrarNombre();
+    cout << " Jurado 2: ";
+    this->jurado2.mostrarNombre();
+    cout << " Nota final: " << this->notaFinal << endl;
+    cout << " Estado acta: " << this->estadoActa << endl; // pendiente acomodar por que retornara un int
+    cout << " Estado calificacion: " << this->estadoCalificacion << endl;
+    cout << "=================================================" << endl;
+
+}
 
