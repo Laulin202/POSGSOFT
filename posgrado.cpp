@@ -75,7 +75,7 @@ void Posgrado::crearActa(){
             this->crearInformacionPersona();
             codirector = this->listaPersonas.back();
         } else{
-            codirector = this->listaPersonas[selec - 1]; 
+            codirector = this->listaPersonas[selec - 1];
         }
     } else{
         Persona codirectorFantasma;
