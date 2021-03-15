@@ -21,6 +21,7 @@ class Criterio{
         Criterio();
         Criterio(int, float, string);
         void mostrarCriterio();
+        float getPorcentajePonderacion();
 };
 
 #endif

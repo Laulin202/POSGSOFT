@@ -106,3 +106,45 @@ void Acta::mostrarActa(){
 
 }
 
+int Acta::getNumero(){
+    return this->numero;
+}
+
+void Acta::diligenciarCriterios(){
+    float calificacionJurado1, calificacionJurado2, promedioCalificacion;
+    string observacion;
+    Criterio criterio;
+
+    for( int i = 0; i < listaCriterios.size(); i++){
+
+        criterio = this->listaCriterios[i];
+
+        cout << "==============================" << endl;
+        cout << "       Criterio " << i + 1 << endl;
+
+        cout << "Digite calificacion jurado 1: " << endl;
+        cin >> calificacionJurado1;
+
+        cout << "Digite calificacion jurado 2: " << endl;
+        cin >> calificacionJurado2;
+
+        promedioCalificacion = ((calificacionJurado1 + calificacionJurado2)/2) * criterio.getPorcentajePonderacion();
+        cout << "El promedio de calificacion del criterio es: " << promedioCalificacion << endl;
+
+        cout << "Digite observaciones " << endl;
+        cin.ignore(100, '\n');
+        getline(cin, observacion);
+
+
+        this->listaDetallesCriterios.push_back(DetalleCriterio( criterio ,calificacionJurado1, calificacionJurado2, promedioCalificacion, observacion));
+        
+    }
+}
+
+/*
+Criterio criterio;
+        float calificacionJurado1;
+        float calificacionJurado2;
+        float promedioCalificacion;
+        string observacion; /
+*/

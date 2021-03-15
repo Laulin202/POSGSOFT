@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <list>
+
 #include "criterio.h"
 
 using std::cin;
@@ -21,6 +22,7 @@ class DetalleCriterio{
         string observacion; //puede ser lista observaciones para que cada jurado agregue las que quiera(?)
     public:
         DetalleCriterio();
+        DetalleCriterio( Criterio ,float, float, float, string );
 };
 
 #endif
