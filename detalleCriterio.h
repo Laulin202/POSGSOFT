@@ -13,13 +13,13 @@ using std::string;
 using std::list;
 
 class DetalleCriterio{
-    public:
+    private:
         Criterio criterio;
         float calificacionJurado1;
         float calificacionJurado2;
         float promedioCalificacion;
         string observacion; //puede ser lista observaciones para que cada jurado agregue las que quiera(?)
-    private:
+    public:
         DetalleCriterio();
 };
 

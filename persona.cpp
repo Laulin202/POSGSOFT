@@ -18,13 +18,16 @@ Persona::Persona(string nombre, string identificacion, string email, string celu
 
 void Persona::mostrarPersona(){
     cout << "Nombre:    " << this->nombre << endl;
-    cout << "idenficicacion:    " << this->identificacion << endl;
+    cout << "idenficacion:    " << this->identificacion << endl;
     cout << "email:    " << this->email << endl;
     cout << "celular:    " << this->celular << endl;
     cout << "clase persona:    " << this->clasePersona << endl;
 }
 
 void Persona::mostrarNombre(){
-    cout << this->nombre << endl;
+    cout << this->nombre;
+}
 
+string Persona::getID(){
+    return this->identificacion;
 }
