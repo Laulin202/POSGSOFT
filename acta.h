@@ -54,6 +54,7 @@ class Acta{
         float notaFinal;
         estado estadoActa;
         estadoCalificacionActa estadoCalificacion;
+        string comentariosEspeciales;
         void inicializarListaCriterios();
     public:
         Acta(); 
@@ -62,6 +63,8 @@ class Acta{
         void mostrarActa();
         int getNumero();
         void diligenciarCriterios();
+        void actualizarEstadoCalificacionActa();
+        
 };
 
 

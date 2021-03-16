@@ -16,6 +16,7 @@ void Posgrado::setDummyData(){
 
 //Nombre: crearActa
 void Posgrado::crearActa(){
+    bool continuar = true;
     int numero, selec;
     tipoTrabajoGrado tipoTrabajo;
     string nombreTrabajo, nombreEstudiante, periodo;
@@ -53,58 +54,147 @@ void Posgrado::crearActa(){
     cin >> periodo;
 
     //Apartado director
-    cout << "Seleccione el director (o en su defecto puede agregar uno): " << endl;
-    this->mostrarListaPersonas();
-    cout << "0. Agregar director" << endl;
-    cin >> selec;
-    if(selec == 0){
-        this->crearInformacionPersona();
-        director = this->listaPersonas.back();
-    } else{
-        director = this->listaPersonas[selec - 1]; 
-    }
+    do{
+        try{
+            cout << "Seleccione el director (o en su defecto puede agregar uno): " << endl;
+            this->mostrarListaPersonas();
+            cout << "0. Agregar director" << endl;
+            cin >> selec;
+            if(selec < 0 || selec > this->listaPersonas.size()){
+                throw 1;
+            }
+            if(selec == 0){
+                this->crearInformacionPersona();
+                director = this->listaPersonas.back();
+            } else{
+                director = this->listaPersonas[selec - 1]; 
+            }
+            continuar = false;
+        } catch(...){
+            cout << "Seleccione una opcion valida, por favor." << endl;
+        }
+    } while(continuar);
 
     //Apartado Codirector
+    continuar = true;
     cout << "Desea agregar un codirector?\n1. Si\n2. No" << endl;
     cin >> selec;
     if(selec == 1){
-        cout << "Seleccione el codirector (o en su defecto puede agregar uno): " << endl;
-        this->mostrarListaPersonas();
-        cout << "0. Agregar codirector" << endl;
-        cin >> selec;
-        if(selec == 0){
-            this->crearInformacionPersona();
-            codirector = this->listaPersonas.back();
-        } else{
-            codirector = this->listaPersonas[selec - 1];
-        }
+        do{
+            try{
+                cout << "Seleccione el codirector (o en su defecto puede agregar uno): " << endl;
+                this->mostrarListaPersonas();
+                cout << "0. Agregar codirector" << endl;
+                cin >> selec;
+                if(selec < 0 || selec > this->listaPersonas.size()){
+                    throw 1;
+                }
+                if(selec == 0){
+                    this->crearInformacionPersona();
+                    codirector = this->listaPersonas.back();
+                } else{
+                    codirector = this->listaPersonas[selec - 1];
+                    if(codirector.getID() == director.getID()){
+                        throw 2;
+                    }
+                }
+                continuar = false;
+            } catch(int error){
+                if(error == 1){
+                    cout << "Seleccione una opcion valida, por favor." << endl;
+                } else if(error == 2){
+                    cout << "El/la senior/a ";
+                    codirector.mostrarNombre();
+                    cout << " ya se encuentra inscrita como director/a en esta acta." << endl;
+                }
+            }
+        } while(continuar);
     } else{
         Persona codirectorFantasma;
         codirector = codirectorFantasma;
     }
 
-    //apartado jurado
-    cout << "Seleccione el jurado numero 1 (o en su defecto puede agregar uno): " << endl;
-    this->mostrarListaPersonas();
-    cout << "0. Agregar jurado" << endl;
-    cin >> selec;
-    if(selec == 0){
-        this->crearInformacionPersona();
-        jurado1 = this->listaPersonas.back();
-    } else{
-        jurado1 = this->listaPersonas[selec - 1]; 
-    }
+    //apartado jurado1
+    continuar = true;
+    do{
+        try{
+            cout << "Seleccione el jurado numero 1 (o en su defecto puede agregar uno): " << endl;
+            this->mostrarListaPersonas();
+            cout << "0. Agregar jurado" << endl;
+            cin >> selec;
+            if(selec < 0 || selec > this->listaPersonas.size()){
+                throw 1;
+            }
+            if(selec == 0){
+                this->crearInformacionPersona();
+                jurado1 = this->listaPersonas.back();
+            } else{
+                jurado1 = this->listaPersonas[selec - 1];
+                if(jurado1.getID() == director.getID()){
+                    throw 2;
+                } else if(jurado1.getID() == codirector.getID()){
+                    throw 3;
+                }
+            }
+            continuar = false;
+        } catch(int error){
+            if(error == 1){
+                cout << "Seleccione una opcion valida, por favor." << endl;
+            } else if(error == 2){
+                cout << "El/la senior/a ";
+                director.mostrarNombre();
+                cout << " ya se encuentra inscrita como director/a en esta acta." << endl;
+            } else if(error == 3){
+                cout << "El/la senior/a ";
+                codirector.mostrarNombre();
+                cout << " ya se encuentra inscrita como codirector/a en esta acta." << endl;
+            }
+        }
+    } while(continuar);
 
-    cout << "Seleccione el jurado numero 2 (o en su defecto puede agregar uno): " << endl;
-    this->mostrarListaPersonas();
-    cout << "0. Agregar jurado" << endl;
-    cin >> selec;
-    if(selec == 0){
-        this->crearInformacionPersona();
-        jurado2 = this->listaPersonas.back();
-    } else{
-        jurado2 = this->listaPersonas[selec - 1]; 
-    }
+    //apartado jurado2
+    continuar = true;
+    do{
+        try{
+            cout << "Seleccione el jurado numero 2 (o en su defecto puede agregar uno): " << endl;
+            this->mostrarListaPersonas();
+            cout << "0. Agregar jurado" << endl;
+            cin >> selec;
+            if(selec < 0 || selec > this->listaPersonas.size()){
+                throw 1;
+            }
+            if(selec == 0){
+                this->crearInformacionPersona();
+                jurado2 = this->listaPersonas.back();
+            } else{
+                jurado2 = this->listaPersonas[selec - 1];
+                if(jurado2.getID() == director.getID()){
+                    throw 2;
+                } else if(jurado2.getID() == codirector.getID()){
+                    throw 3;
+                } else if(jurado2.getID() == jurado1.getID()){
+                    throw 4;
+                }
+            }
+            continuar = false;
+        } catch(int error){
+            if(error == 1){
+                cout << "Seleccione una opcion valida, por favor." << endl;
+            } else if(error == 2){
+                cout << "El/la senior/a ";
+                director.mostrarNombre();
+                cout << " ya se encuentra inscrita como director/a en esta acta." << endl;
+            } else if(error == 3){
+                cout << "El/la senior/a ";
+                codirector.mostrarNombre();
+                cout << " ya se encuentra inscrita como codirector/a en esta acta." << endl;
+            } else if(error == 4){
+                cout << "El/la senior/a ";
+                jurado1.mostrarNombre();
+                cout << " ya se encuentra inscrita como jurado/a 1 en esta acta." << endl;
+            }
+        }
+    } while(continuar);
 
     //se envia el acta
     Acta acta( numero, nombreTrabajo, nombreEstudiante, fecha, tipoTrabajo, periodo, director, codirector, jurado1, jurado2 );
@@ -121,6 +211,7 @@ void Posgrado::mostrarListaPersonas(){
         for(int i = 0; i < this->listaPersonas.size(); i++){
             cout << i + 1 << ". ";
             this->listaPersonas[i].mostrarNombre();
+            cout << endl;
         }
     }
 } //Cree esta funcion para que la asistenta pueda escoge de la lista de personas a quienes quiere como director, codirector y jurados
@@ -176,10 +267,11 @@ void Posgrado::mostrarListaActas(){
     }
 }
 
+
 Acta* Posgrado::buscarActa( int numero){
     Acta* p_acta;
     for( int i = 0; i < this->listaActas.size(); i++){
-        if( numero == listaActas[i].getNumero()){ //PENDIENTE Funcion getNumero
+        if( numero == listaActas[i].getNumero()){ 
             p_acta = &this->listaActas[i];
             break;
         }
@@ -204,27 +296,21 @@ void Posgrado::modificarActa(){
     cout << " ¿Que desea hacer con el acta de evaluacion? " << endl;
     cout << "====================" << endl;
     cout << "1. Diligenciar Acta." << endl;
+    cout << "2. Cerrar Acta." << endl;
     cin >> opcion;
 
     //Aqui se dividen las opciones donde se pueden hacer con el acta :)
-
-
 
     switch (opcion){
         case 1:
             pActa->diligenciarCriterios();
         break;
-    
+        case 2:
+            cout << " En proceso " << endl;
+        break;
         default:
         break;
     }
 
 }
 
-/*
-Criterio criterio;
-        float calificacionJurado1;
-        float calificacionJurado2;
-        float promedioCalificacion;
-        string observacion; /
-*/

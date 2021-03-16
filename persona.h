@@ -31,6 +31,7 @@ class Persona{
 	    Persona( string, string, string, string, clasePersonaEvaluar );
         void mostrarPersona();
         void mostrarNombre();
+        string getID();
 };
 
 //Todo lo relacionado a persona aun lo tengo muy en duda porque necesito tu aprobacion y eso xd
