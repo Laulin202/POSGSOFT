@@ -178,8 +178,8 @@ tipoTrabajoGrado Acta::getTipoTrabajo(){
     return this->tipoTrabajo;
 }
 
-Persona Acta::getDirector(){
-    return this->director;
+Persona Acta::getDirector(int n){
+    return n == 1 ? this->director : this->codirector;
 }
 
 Persona Acta::getJurado(int n){

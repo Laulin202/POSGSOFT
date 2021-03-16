@@ -63,7 +63,7 @@ class Acta{
         void mostrarActa();
         int getNumero();
         tipoTrabajoGrado getTipoTrabajo();
-        Persona getDirector();
+        Persona getDirector(int);
         Persona getJurado(int);
         void diligenciarCriterios();
         void actualizarEstadoCalificacionActa();

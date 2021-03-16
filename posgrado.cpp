@@ -334,7 +334,7 @@ void Posgrado::trabajosTipoInvestigacion(){
 }
 
 void Posgrado::trabajosProfesor(){
-    int selec, contDirector = 0;
+    int selec, contDirector = 0, contCodirector = 0;
     bool continuar = true;
     cout << "Seleccione una de las siguientes personas para consultar las actas de grado dirigidas (cerciorese de que la persona escogida sea interna a la universidad): ";
     do{
@@ -347,14 +347,21 @@ void Posgrado::trabajosProfesor(){
                 throw 2;
             }
             for(int i = 0; i < this->listaActas.size(); i++){
-                if(this->listaActas[i].getDirector().getID() == this->listaPersonas[selec - 1].getID()){
+                if(this->listaActas[i].getDirector(1).getID() == this->listaPersonas[selec - 1].getID()){
                     this->listaActas[i].mostrarActa();
                     contDirector++;
+                } else if(this->listaActas[i].getDirector(2).getID() == this->listaPersonas[selec - 1].getID()){
+                    this->listaActas[i].mostrarActa();
+                    contCodirector++;
                 }
             }
             cout << "El/la profesor/a ";
             this->listaPersonas[selec - 1].mostrarNombre();
             contDirector == 0 ? cout << " no ha dirigido ningun trabajo de grado." : cout << " es director/a de " << contDirector << " trabajos de grado.";
+            cout << endl;
+            cout << "Ademas el/la profesor/a ";
+            this->listaPersonas[selec - 1].mostrarNombre();
+            contCodirector == 0 ? cout << " no ha codirigido ningun trabajo de grado." : cout << " es codirector/a de " << contCodirector << " trabajos de grado.";
             cout << endl;
             continuar = false;
         } catch(int error){
