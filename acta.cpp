@@ -19,6 +19,7 @@ Acta::Acta(int numero, string nombreTrabajo, string nombreEstudiante, string fec
     this->notaFinal = 0.0;
     this->estadoActa = abierto;
     this->estadoCalificacion = pendiente;
+    this->comentariosEspeciales = " ";
     //inicializa los 8 criterios (seran los mismos siempre)
     this->inicializarListaCriterios();
 } //pendiente directores y jurados
@@ -118,6 +119,7 @@ void Acta::diligenciarCriterios(){
     float calificacionJurado1, calificacionJurado2, promedioCalificacion;
     string observacion;
     Criterio criterio;
+    int opcion;
 
     for( int i = 0; i < listaCriterios.size(); i++){
 
@@ -139,9 +141,36 @@ void Acta::diligenciarCriterios(){
         cin.ignore(100, '\n');
         getline(cin, observacion);
 
-
         this->listaDetallesCriterios.push_back(DetalleCriterio( criterio ,calificacionJurado1, calificacionJurado2, promedioCalificacion, observacion));
-        
+
+        this->notaFinal += promedioCalificacion;
+    }
+    cout << " La nota final es: " << this->notaFinal << endl;
+    cout << "Desea añadir comentarios especiales?\n1. Si\n2.No" << endl;
+    cin >> opcion;
+    if( opcion == 1){
+        cout << " Por favor digite el comentario: " << endl;
+        cin.ignore(100, '\n');
+        getline(cin, this->comentariosEspeciales);
+    }
+    else{
+        cout << " Se ha finalizado correctamente el proceso para su acta! " << endl;
+    }
+    this->actualizarEstadoCalificacionActa();
+
+}
+
+void Acta::actualizarEstadoCalificacionActa(){
+    if( this->notaFinal >= 3.5 ){
+        if( this->comentariosEspeciales == " " ){
+            this->estadoCalificacion = aprobado;
+        }
+        else{
+            this->estadoCalificacion = pendiente;
+        }
+    }
+    else{
+        this->estadoCalificacion = rechazada;
     }
 }
 

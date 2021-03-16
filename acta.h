@@ -54,6 +54,7 @@ class Acta{
         float notaFinal;
         estado estadoActa;
         estadoCalificacionActa estadoCalificacion;
+        string comentariosEspeciales;
         void inicializarListaCriterios();
     public:
         Acta(); 
@@ -65,6 +66,8 @@ class Acta{
         Persona getDirector();
         Persona getJurado(int);
         void diligenciarCriterios();
+        void actualizarEstadoCalificacionActa();
+        
 };
 
 
