@@ -82,12 +82,17 @@ void Acta::mostrarActa(){
     cout << "        "<< this->nombreTrabajo << "            "<< endl;
     cout << " Estudiante: " << this->nombreEstudiante << endl;
     cout << " Fecha: " << this->fecha << endl;
-    cout << " Tipo trabajo: " << this->tipoTrabajo << endl;
+    cout << " Tipo trabajo: " << (this->tipoTrabajo == 0 ? "Aplicado" : "Investigacion") << endl;
     cout << " Periodo: " << this->periodo << endl;
     cout << " Director: ";
     this->director.mostrarNombre();
-    cout << endl << " Codirector: ";
-    this->codirector.mostrarNombre();
+    cout << endl;
+    cout << " Codirector: ";
+    if(this->codirector.getID() == ""){
+        cout << "NA";
+    } else{
+        this->codirector.mostrarNombre();
+    }
     cout << endl << " Jurado 1: ";
     this->jurado1.mostrarNombre();
     cout << endl << " Jurado 2: ";
@@ -103,7 +108,6 @@ void Acta::mostrarActa(){
         cout << "rechazado";
     cout << endl;
     cout << "=================================================" << endl;
-
 }
 
 int Acta::getNumero(){
@@ -139,6 +143,18 @@ void Acta::diligenciarCriterios(){
         this->listaDetallesCriterios.push_back(DetalleCriterio( criterio ,calificacionJurado1, calificacionJurado2, promedioCalificacion, observacion));
         
     }
+}
+
+tipoTrabajoGrado Acta::getTipoTrabajo(){
+    return this->tipoTrabajo;
+}
+
+Persona Acta::getDirector(){
+    return this->director;
+}
+
+Persona Acta::getJurado(int n){
+    return n == 1 ? this->jurado1 : this->jurado2;
 }
 
 /*

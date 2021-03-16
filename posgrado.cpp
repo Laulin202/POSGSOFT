@@ -110,8 +110,6 @@ void Posgrado::crearActa(){
             }
         } while(continuar);
     } else{
-        Persona codirectorFantasma;
-        codirector = codirectorFantasma;
     }
 
     //apartado jurado1
@@ -310,7 +308,90 @@ void Posgrado::modificarActa(){
         default:
         break;
     }
+}
 
+void Posgrado::trabajosTipoAplicado(){
+    int contAplicado = 0;
+    for(int i = 0; i < this->listaActas.size(); i++){
+        if(this->listaActas[i].getTipoTrabajo() == aplicado){
+            this->listaActas[i].mostrarActa();
+            contAplicado++;
+        }
+    }
+    cout << "Se encontraron " << contAplicado << " trabajos de tipo Aplicado." << endl;
+}
+
+void Posgrado::trabajosTipoInvestigacion(){
+    int contInvestigacion = 0;
+    for(int i = 0; i < this->listaActas.size(); i++){
+        if(this->listaActas[i].getTipoTrabajo() == investigacion){
+            this->listaActas[i].mostrarActa();
+            contInvestigacion++;
+        }
+    }
+    cout << "Se encontraron " << contInvestigacion << " trabajos de tipo Investigacion." << endl;
+}
+
+void Posgrado::trabajosProfesor(){
+    int selec, contDirector = 0;
+    bool continuar = true;
+    cout << "Seleccione una de las siguientes personas para consultar las actas de grado dirigidas (cerciorese de que la persona escogida sea interna a la universidad): ";
+    do{
+        try{
+            this->mostrarListaPersonas();
+            cin >> selec;
+            if(selec < 0 || selec > this->listaPersonas.size()){
+                throw 1;
+            } else if(this->listaPersonas[selec - 1].getClasePersona() == externo){
+                throw 2;
+            }
+            for(int i = 0; i < this->listaActas.size(); i++){
+                if(this->listaActas[i].getDirector().getID() == this->listaPersonas[selec - 1].getID()){
+                    this->listaActas[i].mostrarActa();
+                    contDirector++;
+                }
+            }
+            cout << "El/la profesor/a ";
+            this->listaPersonas[selec - 1].mostrarNombre();
+            contDirector == 0 ? cout << " no ha dirigido ningun trabajo de grado." : cout << " es director/a de " << contDirector << " trabajos de grado.";
+            cout << endl;
+            continuar = false;
+        } catch(int error){
+            if(error == 1){
+                cout << "Seleccione una opcion valida, por favor." << endl;
+            } else if(error == 2){
+                cout << "La persona seleccionada es externa a la universidad, por favor escoja a un profesor (persona interna)." << endl;
+            }
+        }
+    } while(continuar);
+}
+
+void Posgrado::trabajosJurado(){
+    int selec, contJurado = 0;
+    bool continuar = true;
+    cout << "Seleccione una de las siguientes personas para consultar las actas de grado en las que ha participado como jurado: ";
+    do{
+        try{
+            this->mostrarListaPersonas();
+            cin >> selec;
+            if(selec < 0 || selec > this->listaPersonas.size()){
+                throw;
+            }
+            for(int i = 0; i < this->listaActas.size(); i++){
+                if(this->listaActas[i].getJurado(1).getID() == this->listaPersonas[selec - 1].getID() || this->listaActas[i].getJurado(2).getID() == this->listaPersonas[selec - 1].getID()){
+                    this->listaActas[i].mostrarActa();
+                    contJurado++;
+                }
+            }
+            cout << "El/la senior/a ";
+            this->listaPersonas[selec - 1].mostrarNombre(); 
+            contJurado == 0 ? cout << " no ha sido jurado de ningun trabajo de grado." : cout << " es jurado/a de " << contJurado << " trabajos de grado.";
+            cout << endl;
+            continuar = false;
+        } catch(...){
+            cout << "Seleccione una opcion valida, por favor." << endl;
+        }
+    } while(continuar);
 }
 
 /*

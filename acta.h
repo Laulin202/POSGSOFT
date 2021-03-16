@@ -61,6 +61,9 @@ class Acta{
         void mostrarCriterios(); //funcion de prueba
         void mostrarActa();
         int getNumero();
+        tipoTrabajoGrado getTipoTrabajo();
+        Persona getDirector();
+        Persona getJurado(int);
         void diligenciarCriterios();
 };
 

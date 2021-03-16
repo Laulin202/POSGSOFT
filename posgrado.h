@@ -33,6 +33,10 @@ class Posgrado{
         void crearInformacionPersona();
         void mostrarListaActas();
         Acta* buscarActa( int ); //tiene que retornar un puntero a acta por que quiero que se actualice en la lista
+        void trabajosTipoAplicado();
+        void trabajosTipoInvestigacion();
+        void trabajosProfesor();
+        void trabajosJurado();
 };
 
 

@@ -32,6 +32,7 @@ class Persona{
         void mostrarPersona();
         void mostrarNombre();
         string getID();
+        clasePersonaEvaluar getClasePersona();
 };
 
 //Todo lo relacionado a persona aun lo tengo muy en duda porque necesito tu aprobacion y eso xd

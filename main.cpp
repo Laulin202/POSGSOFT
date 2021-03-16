@@ -25,7 +25,11 @@ int menu(){
     cout << "2. Modificar acta de grado" << endl;
     cout << "3. Mostrar lista Personas" << endl;
     cout << "4. Mostrar lista actas " << endl;
-    cout << "5. En proceso" << endl;
+    cout << "5. Mostrar trabajos de grado de tipo aplicado " << endl;
+    cout << "6. Mostrar trabajos de grado de tipo investigacion " << endl;
+    cout << "7. Mostrar trabajos de grado dirigidos por una persona " << endl;
+    cout << "8. Mostrar trabajos de grado de los que ha sido jurado una persona " << endl;
+    cout << "9. En proceso" << endl;
     cout << "0. Salir\n" << endl;
     cout << "Digita el numero: ";
     cin >> opcion;
@@ -36,8 +40,7 @@ int main(){
     int opcion, i;
     Posgrado javeriana;
 
-    do
-    {
+    do{
         opcion = menu();
         switch (opcion)
         {
@@ -58,10 +61,18 @@ int main(){
             cout << "\n";
             javeriana.mostrarListaActas();
             cout << "\n";
-            
             break;
         case 5:
-            
+            javeriana.trabajosTipoAplicado();
+            break;
+        case 6:
+            javeriana.trabajosTipoInvestigacion();
+            break;
+        case 7:
+            javeriana.trabajosProfesor();
+            break;
+        case 8:
+            javeriana.trabajosJurado();
             break;
         default:
             cout << "\nNumero invalido\n"
