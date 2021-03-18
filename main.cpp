@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <list>
+#include <fstream>
 #include "posgrado.h"
 
 #include "posgrado.h"
@@ -10,6 +11,9 @@ using std::cout;
 using std::endl;
 using std::string;
 using std::list;
+using std::ofstream;
+using std::ios;
+using std::ifstream;
 
 //PARA RECORDAR
 /*
@@ -17,9 +21,24 @@ cout << "Escribe tu nombre : ";
    string nombre;
    getline(cin, nombre);
 */
+/*
+void guardarPosgrado(Posgrado posgrado){
+    ofstream wf("posgrado.dat", ios::out | ios::binary);
+    wf.write((char *) &posgrado, sizeof(Posgrado));
+    wf.close();
+}
+
+Posgrado leerPosgrado(){
+    Posgrado posgrado;
+    ifstream rf("posgrado.dat", ios::out | ios::binary);
+    rf.read((char *) &posgrado, sizeof(Posgrado));
+    rf.close();
+    return posgrado;
+}
+*/
 
 int menu(){
-    int opcion;
+    int opcion, nActas;
     cout << " BIENVENIDO A LA OFICINA DE POSGRADOS DE INGENIERA DE SOFTWARE, POR FAVOR DIGITE SU OPCION:" << endl;
     cout << "1. Crear acta de grado" << endl;
     cout << "2. Modificar acta de grado" << endl;
@@ -39,6 +58,7 @@ int menu(){
 int main(){
     int opcion, i;
     Posgrado javeriana;
+    /*javeriana.leerListaActas();*/
 
     do{
         opcion = menu();
@@ -80,6 +100,7 @@ int main(){
             break;
         }
     } while (opcion != 0);
+    /*javeriana.guardarListaActas();*/
 
    
 

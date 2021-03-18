@@ -265,7 +265,6 @@ void Posgrado::mostrarListaActas(){
     }
 }
 
-
 Acta* Posgrado::buscarActa( int numero){
     Acta* p_acta;
     for( int i = 0; i < this->listaActas.size(); i++){
@@ -401,4 +400,26 @@ void Posgrado::trabajosJurado(){
         }
     } while(continuar);
 }
+/*
+void Posgrado::guardarListaActas(){
+    int n = this->listaActas.size();
+    ofstream wf("listaActas.dat", ios::out | ios::binary);
+    wf.write((char *) &n, sizeof(int));
+    for(int i = 0; i < this->listaActas.size(); i++){
+        wf.write((char *) &this->listaActas[i], sizeof(Acta));
+    }
+    wf.close();
+}
 
+void Posgrado::leerListaActas(){
+    int n;
+    Acta acta;
+    ifstream rf("listaActas.dat", ios::out | ios::binary);
+    rf.read((char *) &n, sizeof(int));
+    for(int i = 0; i < n; i++){
+        rf.read((char *) &acta, sizeof(Acta));
+        acta.mostrarActa();
+        this->listaActas.push_back(acta);
+    }
+    rf.close();
+}*/
