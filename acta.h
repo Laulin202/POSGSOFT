@@ -67,6 +67,8 @@ class Acta{
         Persona getJurado(int);
         void diligenciarCriterios();
         void actualizarEstadoCalificacionActa();
+        void cerrarActa();
+        estadoCalificacionActa getEstadoCalificacionActa();
 };
 
 

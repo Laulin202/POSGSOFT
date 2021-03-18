@@ -24,7 +24,7 @@ class Persona{
         string identificacion;
         string email;
         string celular;
-        //dejo por aqui la idea de un posible booleano para verificar si es jurado o no, espero estar vivo para explicarle esto xd
+        bool jurado;
         clasePersonaEvaluar clasePersona;
     public:
         Persona();
@@ -33,6 +33,8 @@ class Persona{
         void mostrarNombre();
         string getID();
         clasePersonaEvaluar getClasePersona();
+        void setJurado();
+        bool validarJurado();
 };
 
 //Todo lo relacionado a persona aun lo tengo muy en duda porque necesito tu aprobacion y eso xd
