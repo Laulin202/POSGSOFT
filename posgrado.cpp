@@ -126,6 +126,7 @@ void Posgrado::crearActa(){
             if(selec == 0){
                 this->crearInformacionPersona();
                 jurado1 = this->listaPersonas.back();
+                this->listaPersonas.back().setJurado();
             } else{
                 jurado1 = this->listaPersonas[selec - 1];
                 if(jurado1.getID() == director.getID()){
@@ -133,6 +134,7 @@ void Posgrado::crearActa(){
                 } else if(jurado1.getID() == codirector.getID()){
                     throw 3;
                 }
+                this->listaPersonas[ selec - 1 ].setJurado();
             }
             continuar = false;
         } catch(int error){
@@ -164,6 +166,7 @@ void Posgrado::crearActa(){
             if(selec == 0){
                 this->crearInformacionPersona();
                 jurado2 = this->listaPersonas.back();
+                this->listaPersonas.back().setJurado();
             } else{
                 jurado2 = this->listaPersonas[selec - 1];
                 if(jurado2.getID() == director.getID()){
@@ -173,7 +176,9 @@ void Posgrado::crearActa(){
                 } else if(jurado2.getID() == jurado1.getID()){
                     throw 4;
                 }
+                this->listaPersonas[ selec - 1 ].setJurado();  
             }
+            jurado2.setJurado();
             continuar = false;
         } catch(int error){
             if(error == 1){
@@ -267,13 +272,14 @@ void Posgrado::mostrarListaActas(){
 
 
 Acta* Posgrado::buscarActa( int numero){
-    Acta* p_acta;
+    Acta* p_acta = NULL;
     for( int i = 0; i < this->listaActas.size(); i++){
         if( numero == listaActas[i].getNumero()){ 
             p_acta = &this->listaActas[i];
-            break;
+            return p_acta;
         }
     }
+
     return p_acta;
 }
 
@@ -281,6 +287,7 @@ Acta* Posgrado::buscarActa( int numero){
 void Posgrado::modificarActa(){
     int opcion, numero;
     Acta * pActa;
+    bool continuar = true;
 
 
     cout << "-----------MODIFICAR ACTA-------------" << endl;
@@ -288,27 +295,41 @@ void Posgrado::modificarActa(){
     cout << " Digite el codigo del acta a modificar: " << endl;
     cin >> numero;
     pActa = this->buscarActa( numero );
-    pActa->mostrarActa();
-    //funcion buscarActa;
-
-    cout << " ¿Que desea hacer con el acta de evaluacion? " << endl;
-    cout << "====================" << endl;
-    cout << "1. Diligenciar Acta." << endl;
-    cout << "2. Cerrar Acta." << endl;
-    cin >> opcion;
-
-    //Aqui se dividen las opciones donde se pueden hacer con el acta :)
-
-    switch (opcion){
-        case 1:
-            pActa->diligenciarCriterios();
-        break;
-        case 2:
-            cout << " En proceso " << endl;
-        break;
-        default:
-        break;
+    if( pActa == NULL ){
+        cout << "Lo siento, no se pudo encontrar el acta " << endl;
     }
+    else{
+        pActa->mostrarActa();
+        do{
+            try{
+            cout << " ¿Que desea hacer con el acta de evaluacion? " << endl;
+            cout << "====================" << endl;
+            cout << "1. Diligenciar Acta." << endl;
+            cout << "2. Cerrar Acta." << endl;
+            cin >> opcion;
+            if( opcion > 3 || opcion < 1){
+                throw;
+                }
+            continuar = false;
+            }catch(...){
+                cout << "Por favor digite una opcion valida " << endl;
+            }
+        }while( continuar );
+
+        switch (opcion){
+            case 1:
+                pActa->diligenciarCriterios();
+            break;
+
+            case 2:
+                pActa->cerrarActa();
+            break;
+
+            default:
+            break;
+        }
+    }
+    
 }
 
 void Posgrado::trabajosTipoAplicado(){
@@ -393,6 +414,7 @@ void Posgrado::trabajosJurado(){
             }
             cout << "El/la senior/a ";
             this->listaPersonas[selec - 1].mostrarNombre(); 
+            //if alternativo
             contJurado == 0 ? cout << " no ha sido jurado de ningun trabajo de grado." : cout << " es jurado/a de " << contJurado << " trabajos de grado.";
             cout << endl;
             continuar = false;
@@ -401,4 +423,64 @@ void Posgrado::trabajosJurado(){
         }
     } while(continuar);
 }
+
+void Posgrado::mostrarListaJurados(){
+    for( int i = 0; i < this->listaPersonas.size(); i++){
+        if (this->listaPersonas[i].validarJurado()){
+            cout << " =====================" << endl;
+            cout << i + 1 << ".";
+            listaPersonas[i].mostrarNombre();
+        }
+    }
+}
+
+void Posgrado::mostrarListasActasPendientesRechazadas(){
+    for( int i = 0; i < this->listaActas.size(); i++ ){
+        if( this->listaActas[i].getEstadoCalificacionActa() == pendiente || this->listaActas[i].getEstadoCalificacionActa() == rechazada ){
+            this->listaActas[i].mostrarActa();
+        }
+    }
+}
+
+void Posgrado::mostrarInternosExternos(){
+    cout << " Internos: " << endl;
+    for(int i = 0; i < this->listaPersonas.size(); i++){
+        if( this->listaPersonas[i].validarJurado()){
+            if(this->listaPersonas[i].getClasePersona() == interno ){
+                cout << endl;
+                this->listaPersonas[i].mostrarNombre();
+            }
+        }
+    }
+    cout << " ==================================" << endl;
+    cout << " Externos: " << endl;
+    for(int i = 0; i < this->listaPersonas.size(); i++){
+        if( this->listaPersonas[i].validarJurado()){
+            if(this->listaPersonas[i].getClasePersona() == externo ){
+                cout << endl;
+                this->listaPersonas[i].mostrarNombre();
+            }
+        }
+    }
+}
+
+void Posgrado::eliminarActa(){
+    int numero, bandera = 0;
+
+    cout << " Digite el numero del acta a eliminar " << endl;
+    cin >> numero;
+
+    for(int i = 0; i < this->listaActas.size(); i++ ){
+        if( this->listaActas[i].getNumero() == numero ){
+            this->listaActas.erase(this->listaActas.begin() + i );
+            bandera = 1;
+            break;
+        }
+    }
+
+    if(bandera = 0){
+        cout << " Acta no encontrada :( " << endl;
+    }
+}
+
 

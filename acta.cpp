@@ -22,7 +22,7 @@ Acta::Acta(int numero, string nombreTrabajo, string nombreEstudiante, string fec
     this->comentariosEspeciales = " ";
     //inicializa los 8 criterios (seran los mismos siempre)
     this->inicializarListaCriterios();
-} //pendiente directores y jurados
+}
 
 void Acta::inicializarListaCriterios(){
     int identificador;
@@ -186,10 +186,23 @@ Persona Acta::getJurado(int n){
     return n == 1 ? this->jurado1 : this->jurado2;
 }
 
-/*
-Criterio criterio;
-        float calificacionJurado1;
-        float calificacionJurado2;
-        float promedioCalificacion;
-        string observacion; /
-*/
+void Acta::cerrarActa(){
+    int op;
+    if( this->estadoActa == cerrado){
+        cout << "Oops, El acta seleccionada ya se encuentra cerrada! :)" << endl;
+    }
+    else{
+        if( this->estadoCalificacion == pendiente ){
+            cout << "El acta seleccionada se encuentra con comentarios especificos sujeta a la calificacion, ¿Continuar de todos modos?" << endl;
+            cin >> op;
+            if( op == 1 ){
+                this->estadoActa = cerrado;
+            }
+        }
+    }
+}
+
+estadoCalificacionActa Acta::getEstadoCalificacionActa(){
+    return this->estadoCalificacion;
+}
+

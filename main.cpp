@@ -29,7 +29,10 @@ int menu(){
     cout << "6. Mostrar trabajos de grado de tipo investigacion " << endl;
     cout << "7. Mostrar trabajos de grado dirigidos por una persona " << endl;
     cout << "8. Mostrar trabajos de grado de los que ha sido jurado una persona " << endl;
-    cout << "9. En proceso" << endl;
+    cout << "9. Mostrar todos los jurados de las actas registradas " << endl;
+    cout << "10. Consultar actas pendientes o rechazadas " << endl;
+    cout << "11. Consultar lista de jurados internos o externos " << endl;
+    cout << "12. Eliminar acta " << endl;
     cout << "0. Salir\n" << endl;
     cout << "Digita el numero: ";
     cin >> opcion;
@@ -73,6 +76,18 @@ int main(){
             break;
         case 8:
             javeriana.trabajosJurado();
+            break;
+        case 9:
+            javeriana.mostrarListaJurados();
+            break;
+        case 10:
+            javeriana.mostrarListasActasPendientesRechazadas();
+            break;
+        case 11:
+            javeriana.mostrarInternosExternos();
+            break;
+        case 12:
+            javeriana.eliminarActa();
             break;
         default:
             cout << "\nNumero invalido\n"

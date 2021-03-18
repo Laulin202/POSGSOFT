@@ -3,7 +3,9 @@
 //CONSTRUCTOR CLASE PERSONA
 
 //por defecto
-Persona::Persona(){}
+Persona::Persona(){
+
+}
 
 //para inicializar el set dummy DE POSGRADOS
 Persona::Persona(string nombre, string identificacion, string email, string celular, clasePersonaEvaluar clasePersona){
@@ -12,6 +14,7 @@ Persona::Persona(string nombre, string identificacion, string email, string celu
     this->email = email;
     this->celular = celular;
     this->clasePersona = clasePersona; 
+    this->jurado = false;
 }
 
 //METODOS CLASE PERSONA
@@ -35,3 +38,13 @@ string Persona::getID(){
 clasePersonaEvaluar Persona::getClasePersona(){
     return this->clasePersona;
 }
+
+void Persona::setJurado(){
+    this->jurado = true;
+}
+
+bool Persona::validarJurado(){
+    return this->jurado;
+}
+
+

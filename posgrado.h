@@ -37,6 +37,10 @@ class Posgrado{
         void trabajosTipoInvestigacion();
         void trabajosProfesor();
         void trabajosJurado();
+        void mostrarListaJurados();
+        void mostrarListasActasPendientesRechazadas();
+        void mostrarInternosExternos();
+        void eliminarActa();
 };
 
 
