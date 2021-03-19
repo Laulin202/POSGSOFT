@@ -21,21 +21,6 @@ cout << "Escribe tu nombre : ";
    string nombre;
    getline(cin, nombre);
 */
-/*
-void guardarPosgrado(Posgrado posgrado){
-    ofstream wf("posgrado.dat", ios::out | ios::binary);
-    wf.write((char *) &posgrado, sizeof(Posgrado));
-    wf.close();
-}
-
-Posgrado leerPosgrado(){
-    Posgrado posgrado;
-    ifstream rf("posgrado.dat", ios::out | ios::binary);
-    rf.read((char *) &posgrado, sizeof(Posgrado));
-    rf.close();
-    return posgrado;
-}
-*/
 
 int menu(){
     int opcion, nActas;
@@ -50,8 +35,9 @@ int menu(){
     cout << "8. Mostrar trabajos de grado de los que ha sido jurado una persona " << endl;
     cout << "9. Mostrar todos los jurados de las actas registradas " << endl;
     cout << "10. Consultar actas pendientes o rechazadas " << endl;
-    cout << "11. Consultar lista de jurados internos o externos " << endl;
-    cout << "12. Eliminar acta " << endl;
+    cout << "11. Crear informacion persona " << endl;
+    cout << "12. Consultar lista de jurados internos o externos " << endl;
+    cout << "13. Eliminar acta " << endl;
     cout << "0. Salir\n" << endl;
     cout << "Digita el numero: ";
     cin >> opcion;
@@ -61,7 +47,6 @@ int menu(){
 int main(){
     int opcion, i;
     Posgrado javeriana;
-    /*javeriana.leerListaActas();*/
 
     do{
         opcion = menu();
@@ -104,9 +89,12 @@ int main(){
             javeriana.mostrarListasActasPendientesRechazadas();
             break;
         case 11:
+            javeriana.crearInformacionPersona();
+            break;    
+        case 12:
             javeriana.mostrarInternosExternos();
             break;
-        case 12:
+        case 13:
             javeriana.eliminarActa();
             break;
         default:
@@ -115,9 +103,6 @@ int main(){
             break;
         }
     } while (opcion != 0);
-    /*javeriana.guardarListaActas();*/
-
-   
 
     return 0;
 }
