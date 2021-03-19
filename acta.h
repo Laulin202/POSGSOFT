@@ -42,13 +42,13 @@ class Acta{
         int numero;
         string nombreTrabajo;
         string nombreEstudiante;
-        string fecha; //pendiente averiguar la clase fecha
+        string fecha; 
         tipoTrabajoGrado tipoTrabajo;
         string periodo;
-        Persona director; //PENDIENTE LA CLASE PERSONA
-        Persona codirector; //PENDIENTE LA CLASE PERSONA
-        Persona jurado1; //PENDIENTE LA CLASE PERSONA
-        Persona jurado2; //PENDIENTE LA CLASE PERSONA
+        Persona director; 
+        Persona codirector; 
+        Persona jurado1; 
+        Persona jurado2; 
         vector<Criterio> listaCriterios;
         vector<DetalleCriterio> listaDetallesCriterios;
         float notaFinal;
@@ -59,7 +59,7 @@ class Acta{
     public:
         Acta(); 
         Acta(int, string, string, string, tipoTrabajoGrado, string, Persona, Persona, Persona, Persona); //pendiente directores y jurados
-        void mostrarCriterios(); //funcion de prueba
+        void mostrarCriterios(); 
         void mostrarActa();
         int getNumero();
         tipoTrabajoGrado getTipoTrabajo();
