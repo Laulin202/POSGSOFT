@@ -69,7 +69,6 @@ class Acta{
         void actualizarEstadoCalificacionActa();
         void cerrarActa();
         estadoCalificacionActa getEstadoCalificacionActa();
-        
 };
 
 

@@ -3,6 +3,7 @@
 
 
 #include <iostream>
+#include <fstream>
 #include <list>
 #include <string>
 #include <vector>
@@ -17,6 +18,9 @@ using std::endl;
 using std::string;
 using std::list;
 using std::vector;
+using std::ofstream;
+using std::ios;
+using std::ifstream;
 
 //CLASE POSGRADO 
 

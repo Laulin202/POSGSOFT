@@ -270,7 +270,6 @@ void Posgrado::mostrarListaActas(){
     }
 }
 
-
 Acta* Posgrado::buscarActa( int numero){
     Acta* p_acta = NULL;
     for( int i = 0; i < this->listaActas.size(); i++){
@@ -482,5 +481,4 @@ void Posgrado::eliminarActa(){
         cout << " Acta no encontrada :( " << endl;
     }
 }
-
 

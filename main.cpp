@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <list>
+#include <fstream>
 #include "posgrado.h"
 
 #include "posgrado.h"
@@ -10,6 +11,9 @@ using std::cout;
 using std::endl;
 using std::string;
 using std::list;
+using std::ofstream;
+using std::ios;
+using std::ifstream;
 
 //PARA RECORDAR
 /*
@@ -19,7 +23,7 @@ cout << "Escribe tu nombre : ";
 */
 
 int menu(){
-    int opcion;
+    int opcion, nActas;
     cout << " BIENVENIDO A LA OFICINA DE POSGRADOS DE INGENIERA DE SOFTWARE, POR FAVOR DIGITE SU OPCION:" << endl;
     cout << "1. Crear acta de grado" << endl;
     cout << "2. Modificar acta de grado" << endl;
@@ -31,8 +35,9 @@ int menu(){
     cout << "8. Mostrar trabajos de grado de los que ha sido jurado una persona " << endl;
     cout << "9. Mostrar todos los jurados de las actas registradas " << endl;
     cout << "10. Consultar actas pendientes o rechazadas " << endl;
-    cout << "11. Consultar lista de jurados internos o externos " << endl;
-    cout << "12. Eliminar acta " << endl;
+    cout << "11. Crear informacion persona " << endl;
+    cout << "12. Consultar lista de jurados internos o externos " << endl;
+    cout << "13. Eliminar acta " << endl;
     cout << "0. Salir\n" << endl;
     cout << "Digita el numero: ";
     cin >> opcion;
@@ -84,9 +89,12 @@ int main(){
             javeriana.mostrarListasActasPendientesRechazadas();
             break;
         case 11:
+            javeriana.crearInformacionPersona();
+            break;    
+        case 12:
             javeriana.mostrarInternosExternos();
             break;
-        case 12:
+        case 13:
             javeriana.eliminarActa();
             break;
         default:
@@ -95,8 +103,6 @@ int main(){
             break;
         }
     } while (opcion != 0);
-
-   
 
     return 0;
 }
