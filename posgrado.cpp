@@ -297,6 +297,9 @@ void Posgrado::modificarActa(){
     if( pActa == NULL ){
         cout << "Lo siento, no se pudo encontrar el acta " << endl;
     }
+    else if( pActa->getEstadoActa() == cerrado ){
+        cout << "Lo siento, el acta ya se encuentra cerrada " << endl;
+    }
     else{
         pActa->mostrarActa();
         do{
@@ -482,3 +485,18 @@ void Posgrado::eliminarActa(){
     }
 }
 
+void Posgrado::mostrarCriterios(){
+    Acta* pActa;
+    int numero;
+    
+    cout << "Digite el numero del acta que desea ver los criterios: " << endl;
+    cin >> numero;
+    pActa = this->buscarActa( numero );
+    if( pActa == NULL ){
+        cout << "Lo siento, no se pudo encontrar el acta " << endl;
+    }
+    else{
+        pActa->mostrarDetallesCriterios(); //pendiente crear funcion
+    }
+
+}

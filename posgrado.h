@@ -45,6 +45,7 @@ class Posgrado{
         void mostrarListasActasPendientesRechazadas();
         void mostrarInternosExternos();
         void eliminarActa();
+        void mostrarCriterios();
 };
 
 
