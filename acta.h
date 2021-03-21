@@ -6,6 +6,13 @@
 #include <string>
 #include <vector>
 
+#include <iomanip>
+#include <sstream>
+#include <fstream>
+#include <complex>
+#include <cmath>
+#include "pdf.h"
+
 #include "criterio.h"
 #include "detalleCriterio.h"
 #include "persona.h"
@@ -16,6 +23,11 @@ using std::endl;
 using std::string;
 using std::list;
 using std::vector;
+
+using std::ostringstream;
+using std::ifstream;
+using std::complex;
+using std::ios;
 
 
 //enum tipoTrabajo
@@ -69,6 +81,7 @@ class Acta{
         void actualizarEstadoCalificacionActa();
         void cerrarActa();
         estadoCalificacionActa getEstadoCalificacionActa();
+        void generarPDF();
 };
 
 

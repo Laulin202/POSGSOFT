@@ -1,6 +1,10 @@
 all: compilar
-compilar: detalleCriterio criterio persona acta posgrado main
-		g++ -o a detalleCriterio.o criterio.o persona.o acta.o posgrado.o main.o
+compilar: pdf metrics detalleCriterio criterio persona acta posgrado main
+		g++ -o a pdf.o metrics.o detalleCriterio.o criterio.o persona.o acta.o posgrado.o main.o
+pdf: pdf.cpp pdf.h
+		g++ -c pdf.cpp
+metrics: metrics.cpp metrics.h
+		g++ -c metrics.cpp
 detalleCriterio: detalleCriterio.cpp detalleCriterio.h
 		g++ -c detalleCriterio.cpp
 criterio: criterio.cpp criterio.h
