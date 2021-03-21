@@ -206,22 +206,15 @@ estadoCalificacionActa Acta::getEstadoCalificacionActa(){
     return this->estadoCalificacion;
 }
 
+estado Acta::getEstadoActa(){
+    return this->estadoActa;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+void Acta::mostrarDetallesCriterios(){
+    for(int i = 0; i < this->listaDetallesCriterios.size(); i++){
+        this->listaDetallesCriterios[i].mostrarDetalleCriterio(); //pendiente crear 
+    }
+}
 
 static bool getLines(const string &fileName, vector<string> &lines, string &errMsg){
    ifstream in;

@@ -38,6 +38,7 @@ int menu(){
     cout << "11. Crear informacion persona " << endl;
     cout << "12. Consultar lista de jurados internos o externos " << endl;
     cout << "13. Eliminar acta " << endl;
+    cout << "14. Mostrar Criterios " << endl;
     cout << "0. Salir\n" << endl;
     cout << "Digita el numero: ";
     cin >> opcion;
@@ -96,6 +97,9 @@ int main(){
             break;
         case 13:
             javeriana.eliminarActa();
+            break;
+        case 14:
+            javeriana.mostrarCriterios();
             break;
         default:
             cout << "\nNumero invalido\n"

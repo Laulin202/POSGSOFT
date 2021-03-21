@@ -23,6 +23,7 @@ class DetalleCriterio{
     public:
         DetalleCriterio();
         DetalleCriterio( Criterio ,float, float, float, string );
+        void mostrarDetalleCriterio();
 };
 
 #endif
