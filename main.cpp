@@ -15,12 +15,7 @@ using std::ofstream;
 using std::ios;
 using std::ifstream;
 
-//PARA RECORDAR
-/*
-cout << "Escribe tu nombre : ";
-   string nombre;
-   getline(cin, nombre);
-*/
+
 
 int menu(){
     int opcion, nActas;

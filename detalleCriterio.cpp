@@ -5,6 +5,12 @@
 //Por defecto
 DetalleCriterio::DetalleCriterio(){}
 
+/*
+Nombre: DetalleCriterio
+Funcion: inicializa el objeto DetalleCriterio con un objeto criterio, calificacion del jurado1, calificacion jurado 2, promedio calificacion, y observacion
+Entrada: Criterio, float, float, float, string
+Salida: n/a
+*/
 DetalleCriterio::DetalleCriterio( Criterio criterio, float calificacionJurado1, float calificacionJurado2, float promedioCalificacion, string observacion){
     this->criterio = criterio;
     this->calificacionJurado1 = calificacionJurado1;
@@ -13,6 +19,12 @@ DetalleCriterio::DetalleCriterio( Criterio criterio, float calificacionJurado1, 
     this->observacion = observacion;
 }
 
+/*
+Nombre: mostrarDetalleCriterio
+Funcion: muestra la informacion del DetalleCriterio
+Entrada: n/a
+Salida: n/a
+*/
 void DetalleCriterio::mostrarDetalleCriterio(){
     
     this->criterio.mostrarCriterio();
@@ -28,6 +40,12 @@ void DetalleCriterio::mostrarDetalleCriterio(){
 
 }
 
+/*
+Nombre: getCalificacionJurado
+Funcion: retorna la calificacion del jurado 1 o 2
+Entrada: int(num)
+Salida: float
+*/
 float DetalleCriterio::getCalificacionJurado( int num ){
     if( num == 1)
         return this->calificacionJurado1;
@@ -35,6 +53,12 @@ float DetalleCriterio::getCalificacionJurado( int num ){
         return this->calificacionJurado2;
 }
 
+/*
+Nombre: getObservacion
+Funcion: retorna la observacion 
+Entrada: n/a
+Salida: string(observacion)
+*/
 string DetalleCriterio::getObservacion(){
     return this->observacion;
 }

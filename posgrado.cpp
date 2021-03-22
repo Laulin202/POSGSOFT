@@ -6,6 +6,12 @@ Posgrado::Posgrado(){
     this->setDummyData(); //este metodo inicialara una lisa de personas mientas tanto (POTENCIAL PARA SER LA FUNCION CARGAR)
 }
 
+/*
+Nombre: setDummyData
+Funcion: inicializa la listaPersonas con 3 objetos Persona apenas se cree un objeto de tipo Posgrado
+Entrada: n/a
+Salida: n/a
+*/
 void Posgrado::setDummyData(){
     this->listaPersonas.push_back( Persona("Luisa Rincon","1001","lufe@gmail.com","300045439", interno) );
     this->listaPersonas.push_back( Persona("Joancito Popoloko","1002","elmejorProfedelmundo@gmail.com","3284845439", interno) );
@@ -14,7 +20,12 @@ void Posgrado::setDummyData(){
 
 //METODOS CLASE POSGRADO
 
-//Nombre: crearActa
+/*
+Nombre: crearActa
+Funcion: pide la informacion necesaria para crear un Acta, y finaliza creando el acta y colocandola a la listaActas
+Entrada: n/a
+Salida: n/a
+*/
 void Posgrado::crearActa(){
     bool continuar = true;
     int numero, selec;
@@ -203,10 +214,14 @@ void Posgrado::crearActa(){
     Acta acta( numero, nombreTrabajo, nombreEstudiante, fecha, tipoTrabajo, periodo, director, codirector, jurado1, jurado2 );
     this->listaActas.push_back(acta);
 
-} //Esta pendiente directores y jurados, debido a la clase Persona 
+}  
 
-//Nombre: mostrarListaPersonas 
-//Funcion muestra el nombre de las personas de la lista personas
+/*
+Nombre: mostrarListaPersonas 
+Funcion: muestra el nombre de las personas de la lista personas
+Entrada: n/a
+Salida: n/a
+*/
 void Posgrado::mostrarListaPersonas(){
     if(this->listaPersonas.size() == 0){
         cout << "Por el momento no se encuentran personas registradas en el sistema, proceda a agregar." << endl;
@@ -219,9 +234,12 @@ void Posgrado::mostrarListaPersonas(){
     }
 } //Cree esta funcion para que la asistenta pueda escoge de la lista de personas a quienes quiere como director, codirector y jurados
 
-//Clase: Posgrado
-//Nombre: crearInformacionPersona
-//Funcion: Crea una nueva persona y la agrega a la a lista de personas 
+/*
+Nombre: crearInformacionPersona
+Funcion: Crea una nueva persona y la agrega a la a lista de personas 
+Entrada: n/a
+Salida: n/a
+*/
 void Posgrado::crearInformacionPersona(){
     int selec;
     string nombre, identificacion, email, celular;
@@ -257,8 +275,14 @@ void Posgrado::crearInformacionPersona(){
 
     this->listaPersonas.push_back(persona);
     
-} //Me adelante un poquito pues esta funcionalidad es de las ultimas que se piden, pero la vi necesaria para el crearActa
+} 
 
+/*
+Nombre: mostrarListaActa
+Funcion: Muestra la informacion de todas las actas almacenadas en listaActas
+Entrada: n/a
+Salida: n/a
+*/
 void Posgrado::mostrarListaActas(){
     if(this->listaActas.size() == 0){
         cout << "Oops, parece que aun no hay ningun acta en el sistema, porfavor cree una e intente nuevamente." << endl;
@@ -270,6 +294,12 @@ void Posgrado::mostrarListaActas(){
     }
 }
 
+/*
+Nombre: buscarActa
+Funcion: busca un acta en listaActas (como referente el numero) y retorna un puntero hacia esa acta
+Entrada: int(numero)
+Salida: Acta*
+*/
 Acta* Posgrado::buscarActa( int numero){
     Acta* p_acta = NULL;
     for( int i = 0; i < this->listaActas.size(); i++){
@@ -282,7 +312,12 @@ Acta* Posgrado::buscarActa( int numero){
     return p_acta;
 }
 
-
+/*
+Nombre: modificarActa
+Funcion: permite modificar el acta seleccionada, ya sea diligenciandola o cerrandola
+Entrada: n/a
+Salida: n/a
+*/
 void Posgrado::modificarActa(){
     int opcion, numero;
     Acta * pActa;
@@ -334,6 +369,12 @@ void Posgrado::modificarActa(){
     
 }
 
+/*
+Nombre: trabajosTipoAplicado
+Funcion: muestra todas las actas de tipo "aplicado" que se encuentren en listaActas
+Entrada: n/a
+Salida: n/a
+*/
 void Posgrado::trabajosTipoAplicado(){
     int contAplicado = 0;
     for(int i = 0; i < this->listaActas.size(); i++){
@@ -345,6 +386,12 @@ void Posgrado::trabajosTipoAplicado(){
     cout << "Se encontraron " << contAplicado << " trabajos de tipo Aplicado." << endl;
 }
 
+/*
+Nombre: trabajosTipoInvestigacion
+Funcion: muestra todas las actas de tipo "investigacion" que se encuentren en listaActas
+Entrada: n/a
+Salida: n/a
+*/
 void Posgrado::trabajosTipoInvestigacion(){
     int contInvestigacion = 0;
     for(int i = 0; i < this->listaActas.size(); i++){
@@ -356,6 +403,12 @@ void Posgrado::trabajosTipoInvestigacion(){
     cout << "Se encontraron " << contInvestigacion << " trabajos de tipo Investigacion." << endl;
 }
 
+/*
+Nombre: trabajosProfesor
+Funcion: muestra las actas donde ha sido director y/o codirector una persona
+Entrada: n/a
+Salida: n/a
+*/
 void Posgrado::trabajosProfesor(){
     int selec, contDirector = 0, contCodirector = 0;
     bool continuar = true;
@@ -397,6 +450,12 @@ void Posgrado::trabajosProfesor(){
     } while(continuar);
 }
 
+/*
+Nombre: trabajosJurado
+Funcion: muestra las actas de grado donde ha sido jurado una persona
+Entrada: n/a
+Salida: n/a
+*/
 void Posgrado::trabajosJurado(){
     int selec, contJurado = 0;
     bool continuar = true;
@@ -436,6 +495,12 @@ void Posgrado::mostrarListaJurados(){
     }
 }
 
+/*
+Nombre: mostrarListasActasPendientesRechazadas
+Funcion: muestra las actas que se encuentren en estado "pendiente" o "rechazada"
+Entrada: n/a
+Salida: n/a
+*/
 void Posgrado::mostrarListasActasPendientesRechazadas(){
     for( int i = 0; i < this->listaActas.size(); i++ ){
         if( this->listaActas[i].getEstadoCalificacionActa() == pendiente || this->listaActas[i].getEstadoCalificacionActa() == rechazada ){
@@ -444,6 +509,12 @@ void Posgrado::mostrarListasActasPendientesRechazadas(){
     }
 }
 
+/*
+Nombre: mostrarInternosExternos
+Funcion: muestra los profesores de tipo "interno" o "externo"
+Entrada: n/a
+Salida: n/a
+*/
 void Posgrado::mostrarInternosExternos(){
     cout << " Internos: " << endl;
     for(int i = 0; i < this->listaPersonas.size(); i++){
@@ -466,6 +537,12 @@ void Posgrado::mostrarInternosExternos(){
     }
 }
 
+/*
+Nombre: eliminarActa
+Funcion: elimina el acta seleccionada de listaActas
+Entrada: n/a
+Salida: n/a
+*/
 void Posgrado::eliminarActa(){
     int numero, bandera = 0;
 
@@ -485,6 +562,12 @@ void Posgrado::eliminarActa(){
     }
 }
 
+/*
+Nombre: mostrarCriterios
+Funcion: pide el numero del acta que desea ver el usuario para hacer la busqueda correspondiente
+Entrada: n/a
+Salida: n/a
+*/
 void Posgrado::mostrarCriterios(){
     Acta* pActa;
     int numero;
@@ -496,7 +579,7 @@ void Posgrado::mostrarCriterios(){
         cout << "Lo siento, no se pudo encontrar el acta " << endl;
     }
     else{
-        pActa->mostrarDetallesCriterios(); //pendiente crear funcion
+        pActa->mostrarDetallesCriterios(); 
     }
 
 }
@@ -536,7 +619,12 @@ void Posgrado::mostrarListaActasAbiertasCerradas(){
         }
     } while( continuar );
 }
-
+/*
+Nombre: generarPDF
+Funcion: pide el numero del acta que se desea exportar a pdf
+Entrada: n/a
+Salida: n/a
+*/
 void Posgrado::generarPDF(){
     Acta* pActa;
     int numero;
