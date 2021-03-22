@@ -146,7 +146,7 @@ void Acta::diligenciarCriterios(){
         this->notaFinal += promedioCalificacion;
     }
     cout << " La nota final es: " << this->notaFinal << endl;
-    cout << "Desea añadir comentarios especiales?\n1. Si\n2.No" << endl;
+    cout << "Desea añadir comentarios especificos?\n1. Si\n2.No" << endl;
     cin >> opcion;
     if( opcion == 1){
         cout << " Por favor digite el comentario: " << endl;
