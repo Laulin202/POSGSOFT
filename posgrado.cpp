@@ -500,3 +500,21 @@ void Posgrado::mostrarCriterios(){
     }
 
 }
+
+void Posgrado::generarPDF(){
+    Acta* pActa;
+    int numero;
+
+    cout << " Digite el numero del acta que desea exportar a pdf " << endl;
+    cin >> numero;
+
+    pActa = this->buscarActa( numero );
+
+    if( pActa == NULL ){
+        cout << "Lo siento, no se pudo encontrar el acta " << endl;
+    }
+    else{
+        pActa->generarPDF();
+    }
+
+}

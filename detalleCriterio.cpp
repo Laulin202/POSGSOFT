@@ -27,3 +27,14 @@ void DetalleCriterio::mostrarDetalleCriterio(){
     cout << this->observacion << endl;
 
 }
+
+float DetalleCriterio::getCalificacionJurado( int num ){
+    if( num == 1)
+        return this->calificacionJurado1;
+    else
+        return this->calificacionJurado2;
+}
+
+string DetalleCriterio::getObservacion(){
+    return this->observacion;
+}

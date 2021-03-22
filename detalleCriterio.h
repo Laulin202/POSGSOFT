@@ -24,6 +24,8 @@ class DetalleCriterio{
         DetalleCriterio();
         DetalleCriterio( Criterio ,float, float, float, string );
         void mostrarDetalleCriterio();
+        float getCalificacionJurado( int );
+        string getObservacion();
 };
 
 #endif
