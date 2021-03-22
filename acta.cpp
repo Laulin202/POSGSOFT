@@ -266,7 +266,7 @@ void Acta::generarPDF(){
    p.setFont(PDF::HELVETICA_BOLD, 10);
 
    s = "ACTA: ";
-   s += this->numero;
+   s += std::__cxx11::to_string(this->numero);
    p.showTextXY(s, 40, 690);
 
    s = "Fecha: ";
@@ -284,36 +284,49 @@ void Acta::generarPDF(){
    s += this->nombreTrabajo;
    p.showTextXY(s, 40, 630);
 
-   s = "Autor: ";
-   s += this->nombreEstudiante;
+   s = "Autor:";
    p.showTextXY(s, 40, 600);
+   s = this->nombreEstudiante;
+   p.showTextXY(s, 180, 600);
 
-   s = "Periodo: ";
-   s += this->periodo;
+   s = "Periodo:";
    p.showTextXY(s, 40, 575);
+   s = this->periodo;
+   p.showTextXY(s, 180, 575);
 
-   s = "Director: ";
-   s += this->director.getNombre();
+   s = "Director:";
    p.showTextXY(s, 40, 550);
+   s = this->director.getNombre();
+   p.showTextXY(s, 180, 550);
 
-   s = "Co-Director: ";
-   s += this->codirector.getNombre();
+   s = "Co-Director:";
    p.showTextXY(s, 40, 525);
+   if(this->codirector.getID() == ""){
+        s = "NA";
+    } else{
+        s = this->codirector.getNombre();
+    }
+   p.showTextXY(s, 180, 525);
 
-   s = "Enfasis en: Sistemas y Computación";
+   s = "Enfasis en:";
    p.showTextXY(s, 40, 500);
+   s = "Sistema y computacion";
+   p.showTextXY(s, 180, 500);
 
-   s = "Modalidad: ";
-   s += this->tipoTrabajo == 0 ? "Aplicado" : "Investigacion";
+   s = "Modalidad:";
    p.showTextXY(s, 40, 475);
-
-   s = "Jurado 1: ";
-   s += this->jurado1.getNombre();
+   s = this->tipoTrabajo == 0 ? "Aplicado" : "Investigacion";
+   p.showTextXY(s, 180, 475);
+   
+   s = "Jurado 1:";
    p.showTextXY(s, 40, 450);
-
-   s = "Jurado 2: ";
-   s += this->jurado2.getNombre();
+   s = this->jurado1.getNombre();
+   p.showTextXY(s, 180, 450);
+   
+   s = "Jurado 2:";
    p.showTextXY(s, 40, 425);
+   s = this->jurado2.getNombre();
+   p.showTextXY(s, 180, 425);
 
    s = "En atencion al desarrollo de este Trabajo de Grado y al documento y sustentacion que presento el(la) autor(a), los Jurados damos las siguientes calificaciones parciales y observaciones (los criterios a evaluar y sus ponderaciones se estipulan en el articulo 7.1 de las Directrices para Trabajo de Grado de Maestria):";
    sv = p.wrapText(s, 540, true);
@@ -325,6 +338,8 @@ void Acta::generarPDF(){
 
    p.setFont(PDF::HELVETICA_BOLD, 11);
 
+    string extra = "_";
+
    s = "1.    Desarrollo y profundidad en el tratamiento del tema: ";
    p.showTextXY(s, 40, 330);
 
@@ -332,17 +347,21 @@ void Acta::generarPDF(){
    p.setFont(PDF::HELVETICA, 11);
 
    s = "      Calificacion Jurado 1: ";
-   s += std::__cxx11::to_string(this->listaDetallesCriterios[0].getCalificacionJurado(1));
+   s += std::__cxx11::to_string(this->listaDetallesCriterios[0].getCalificacionJurado(1)).erase(4,4);
    s += "      Calificacion Jurado 2: ";
-   s += std::__cxx11::to_string(this->listaDetallesCriterios[0].getCalificacionJurado(2));
+   s += std::__cxx11::to_string(this->listaDetallesCriterios[0].getCalificacionJurado(2)).erase(4,4);
    p.showTextXY(s, 40, 310);
 
-   s = "Ponderacion: 20%%";
+   s = "Ponderacion: 20%";
    p.rightJustifyTextXY(s, 560, 310);
 
    s = "      Observaciones: ";
    s += this->listaDetallesCriterios[0].getObservacion();
    p.showTextXY(s, 40, 290);
+   s = "      __________________________________________________________________________________";
+   for(int i = 0; i < 2; i++){
+       p.showTextXY(s, 40, 275 - 20 * i);
+   }
 
 // CRITERIO 2
    p.setFont(PDF::HELVETICA_BOLD, 11);
@@ -353,17 +372,21 @@ void Acta::generarPDF(){
    p.setFont(PDF::HELVETICA, 11);
 
    s = "      Calificacion Jurado 1: ";
-   s += std::__cxx11::to_string(this->listaDetallesCriterios[1].getCalificacionJurado(1));
+   s += std::__cxx11::to_string(this->listaDetallesCriterios[1].getCalificacionJurado(1)).erase(4,4);
    s += "      Calificacion Jurado 2: ";
-   s += std::__cxx11::to_string(this->listaDetallesCriterios[1].getCalificacionJurado(2));
+   s += std::__cxx11::to_string(this->listaDetallesCriterios[1].getCalificacionJurado(2)).erase(4,4);
    p.showTextXY(s, 40, 210);
 
-   s = "Ponderacion: 15%%";
+   s = "Ponderacion: 15%";
    p.rightJustifyTextXY(s, 560, 210);
 
    s = "      Observaciones: ";
    s += this->listaDetallesCriterios[1].getObservacion();
    p.showTextXY(s, 40, 190);
+   s = "      __________________________________________________________________________________";
+   for(int i = 0; i < 2; i++){
+       p.showTextXY(s, 40, 175 - 20 * i);
+   }
 
    p.newPage();
 
@@ -380,7 +403,7 @@ void Acta::generarPDF(){
    p.setFont(PDF::HELVETICA_BOLD, 10);
 
    s = "ACTA: ";
-   s += this->numero;
+   s += std::__cxx11::to_string(this->numero);
    p.showTextXY(s, 40, 690);
 
    s = "Fecha: ";
@@ -396,17 +419,21 @@ void Acta::generarPDF(){
    p.setFont(PDF::HELVETICA, 11);
 
    s = "      Calificacion Jurado 1: ";
-   s += std::__cxx11::to_string(this->listaDetallesCriterios[2].getCalificacionJurado(1));
+   s += std::__cxx11::to_string(this->listaDetallesCriterios[2].getCalificacionJurado(1)).erase(4,4);
    s += "      Calificacion Jurado 2: ";
-   s += std::__cxx11::to_string(this->listaDetallesCriterios[2].getCalificacionJurado(2));
+   s += std::__cxx11::to_string(this->listaDetallesCriterios[2].getCalificacionJurado(2)).erase(4,4);
    p.showTextXY(s, 40, 640);
 
-   s = "Ponderacion: 10%% ";
+   s = "Ponderacion: 10% ";
    p.rightJustifyTextXY(s, 560, 640);
 
    s = "      Observaciones: ";
    s += this->listaDetallesCriterios[2].getObservacion();
    p.showTextXY(s, 40, 620);
+   s = "      __________________________________________________________________________________";
+   for(int i = 0; i < 2; i++){
+       p.showTextXY(s, 40, 605 - 20 * i);
+   }
 
 //CRITERIO 4
    p.setFont(PDF::HELVETICA_BOLD, 11);
@@ -417,17 +444,21 @@ void Acta::generarPDF(){
    p.setFont(PDF::HELVETICA, 11);
 
    s = "      Calificacion Jurado 1: ";
-   s += std::__cxx11::to_string(this->listaDetallesCriterios[3].getCalificacionJurado(1));
+   s += std::__cxx11::to_string(this->listaDetallesCriterios[3].getCalificacionJurado(1)).erase(4,4);
    s += "      Calificacion Jurado 2: ";
-   s += std::__cxx11::to_string(this->listaDetallesCriterios[3].getCalificacionJurado(2));
+   s += std::__cxx11::to_string(this->listaDetallesCriterios[3].getCalificacionJurado(2)).erase(4,4);
    p.showTextXY(s, 40, 540);
 
-   s = "Ponderacion: 10%%";
+   s = "Ponderacion: 10%";
    p.rightJustifyTextXY(s, 560, 540);
 
    s = "      Observaciones: ";
    s += this->listaDetallesCriterios[3].getObservacion();
    p.showTextXY(s, 40, 520);
+   s = "      __________________________________________________________________________________";
+   for(int i = 0; i < 2; i++){
+       p.showTextXY(s, 40, 505 - 20 * i);
+   }
 
 //CRITERIO 5
    p.setFont(PDF::HELVETICA_BOLD, 11);
@@ -438,17 +469,21 @@ void Acta::generarPDF(){
    p.setFont(PDF::HELVETICA, 11);
 
    s = "      Calificacion Jurado 1: ";
-   s += std::__cxx11::to_string(this->listaDetallesCriterios[4].getCalificacionJurado(1));
+   s += std::__cxx11::to_string(this->listaDetallesCriterios[4].getCalificacionJurado(1)).erase(4,4);
    s += "      Calificacion Jurado 2: ";
-   s += std::__cxx11::to_string(this->listaDetallesCriterios[4].getCalificacionJurado(2));
+   s += std::__cxx11::to_string(this->listaDetallesCriterios[4].getCalificacionJurado(2)).erase(4,4);
    p.showTextXY(s, 40, 440);
 
-   s = "Ponderacion: 20%%";
+   s = "Ponderacion: 20%";
    p.rightJustifyTextXY(s, 560, 440);
 
    s = "      Observaciones: ";
    s += this->listaDetallesCriterios[4].getObservacion();
    p.showTextXY(s, 40, 420);
+   s = "      __________________________________________________________________________________";
+   for(int i = 0; i < 2; i++){
+       p.showTextXY(s, 40, 405 - 20 * i);
+   }
 
 //CRITERIO 6
    p.setFont(PDF::HELVETICA_BOLD, 11);
@@ -459,17 +494,21 @@ void Acta::generarPDF(){
    p.setFont(PDF::HELVETICA, 11);
 
    s = "      Calificacion Jurado 1: ";
-   s += std::__cxx11::to_string(this->listaDetallesCriterios[5].getCalificacionJurado(1));
+   s += std::__cxx11::to_string(this->listaDetallesCriterios[5].getCalificacionJurado(1)).erase(4,4);
    s += "      Calificacion Jurado 2: ";
-   s += std::__cxx11::to_string(this->listaDetallesCriterios[5].getCalificacionJurado(2));
+   s += std::__cxx11::to_string(this->listaDetallesCriterios[5].getCalificacionJurado(2)).erase(4,4);
    p.showTextXY(s, 40, 340);
 
-   s = "Ponderacion: 10%%";
+   s = "Ponderacion: 10%";
    p.rightJustifyTextXY(s, 560, 340);
 
    s = "      Observaciones: ";
    s += this->listaDetallesCriterios[5].getObservacion();
    p.showTextXY(s, 40, 320);
+   s = "      __________________________________________________________________________________";
+   for(int i = 0; i < 2; i++){
+       p.showTextXY(s, 40, 305 - 20 * i);
+   }
 
 //CRITERIO 7
    p.setFont(PDF::HELVETICA_BOLD, 11);
@@ -480,17 +519,21 @@ void Acta::generarPDF(){
    p.setFont(PDF::HELVETICA, 11);
 
    s = "      Calificacion Jurado 1: ";
-   s += std::__cxx11::to_string(this->listaDetallesCriterios[6].getCalificacionJurado(1));
+   s += std::__cxx11::to_string(this->listaDetallesCriterios[6].getCalificacionJurado(1)).erase(4,4);
    s += "      Calificacion Jurado 2: ";
-   s += std::__cxx11::to_string(this->listaDetallesCriterios[6].getCalificacionJurado(2));
+   s += std::__cxx11::to_string(this->listaDetallesCriterios[6].getCalificacionJurado(2)).erase(4,4);
    p.showTextXY(s, 40, 240);
 
-   s = "Ponderacion: 7,5%%";
+   s = "Ponderacion: 7,5%";
    p.rightJustifyTextXY(s, 560, 240);
 
    s = "      Observaciones: ";
    s += this->listaDetallesCriterios[6].getObservacion();
    p.showTextXY(s, 40, 220);
+   s = "      __________________________________________________________________________________";
+   for(int i = 0; i < 2; i++){
+       p.showTextXY(s, 40, 205 - 20 * i);
+   }
 
 //CRITERIO 8
    p.setFont(PDF::HELVETICA_BOLD, 11);
@@ -501,17 +544,22 @@ void Acta::generarPDF(){
    p.setFont(PDF::HELVETICA, 11);
 
    s = "      Calificacion Jurado 1: ";
-   s += std::__cxx11::to_string(this->listaDetallesCriterios[7].getCalificacionJurado(1));
+   s += std::__cxx11::to_string(this->listaDetallesCriterios[7].getCalificacionJurado(1)).erase(4,4);
    s += "      Calificacion Jurado 2: ";
-   s += std::__cxx11::to_string(this->listaDetallesCriterios[7].getCalificacionJurado(2));
+   s += std::__cxx11::to_string(this->listaDetallesCriterios[7].getCalificacionJurado(2)).erase(4,4);
    p.showTextXY(s, 40, 140);
 
-   s = "Ponderacion: 7,5%%";
+   s = "Ponderacion: 7,5%";
    p.rightJustifyTextXY(s, 560, 140);
 
    s = "      Observaciones: ";
    s += this->listaDetallesCriterios[7].getObservacion();
    p.showTextXY(s, 40, 120);
+   s = "      __________________________________________________________________________________";
+   for(int i = 0; i < 2; i++){
+       p.showTextXY(s, 40, 105 - 20 * i);
+   }
+
 
    p.newPage();
    p.setFont(PDF::HELVETICA_BOLD, 14);
@@ -530,11 +578,11 @@ void Acta::generarPDF(){
       p.showTextXY(sv[i], 40, 670 - 12 * i);
    }
 
-   s = "Grado es:";
-   s += std::__cxx11::to_string(this->notaFinal);
+   s = "Grado es: ";
+   s += std::__cxx11::to_string(this->notaFinal).erase(4,4);
    p.showTextXY(s, 40, 658);
 
-   s = std::__cxx11::to_string(this->notaFinal); //probando
+   s = std::__cxx11::to_string(this->notaFinal).erase(4,4); //probando
    p.showTextXY(s, 110, 633);
 
    s = ""; //probando
@@ -549,10 +597,24 @@ void Acta::generarPDF(){
    p.setFont(PDF::HELVETICA, 11);
    s = "Observaciones adicionales: ";
    s += this->comentariosEspeciales;
+   for(int i = 0; i < 61 - this->comentariosEspeciales.length(); i++){
+       s += extra;
+   }
    p.showTextXY(s, 40, 581);
+   s = "________________________________________________________________________________________";
+   for(int i = 0; i < 3; i++){
+       p.showTextXY(s, 40, 561 - 20 * i);
+   }
 
    s = "La calificacion final quedas sujeta a que se implementen las siguientes correcciones: ";
+   for(int i = 0; i < 15; i++){
+       s += extra;
+   }
    p.showTextXY(s, 40, 451);
+   s = "________________________________________________________________________________________";
+   for(int i = 0; i < 3; i++){
+       p.showTextXY(s, 40, 431 - 20 * i);
+   }
 
    s = "________________________________     _______________________________";
    p.showTextXY(s, 80, 261);
@@ -574,7 +636,7 @@ void Acta::generarPDF(){
    p.setFont(PDF::HELVETICA_BOLD, 10);
 
    s = "ACTA: ";
-   s += this->numero;
+   s += std::__cxx11::to_string(this->numero);
    p.showTextXY(s, 40, 690);
 
    s = "Fecha: ";
@@ -592,36 +654,49 @@ void Acta::generarPDF(){
    s += this->nombreTrabajo;
    p.showTextXY(s, 40, 630);
 
-   s = "Autor: ";
-   s += this->nombreEstudiante;
+   s = "Autor:";
    p.showTextXY(s, 40, 600);
+   s = this->nombreEstudiante;
+   p.showTextXY(s, 180, 600);
 
-   s = "Periodo: ";
-   s += this->periodo;
+   s = "Periodo:";
    p.showTextXY(s, 40, 575);
+   s = this->periodo;
+   p.showTextXY(s, 180, 575);
 
-   s = "Director: ";
-   s += this->director.getNombre();
+   s = "Director:";
    p.showTextXY(s, 40, 550);
+   s = this->director.getNombre();
+   p.showTextXY(s, 180, 550);
 
-   s = "Co-Director: ";
-   s += this->codirector.getNombre();
+   s = "Co-Director:";
    p.showTextXY(s, 40, 525);
+   if(this->codirector.getID() == ""){
+        s = "NA";
+    } else{
+        s = this->codirector.getNombre();
+    }
+   p.showTextXY(s, 180, 525);
 
-   s = "Enfasis en: Sistema y computacion";
+   s = "Enfasis en:";
    p.showTextXY(s, 40, 500);
+   s = "Sistema y computacion";
+   p.showTextXY(s, 180, 500);
 
-   s = "Modalidad: ";
-   s += this->tipoTrabajo == 0 ? "Aplicado" : "Investigacion";
+   s = "Modalidad:";
    p.showTextXY(s, 40, 475);
-
-   s = "Jurado 1: ";
-   s += this->jurado1.getNombre();
+   s = this->tipoTrabajo == 0 ? "Aplicado" : "Investigacion";
+   p.showTextXY(s, 180, 475);
+   
+   s = "Jurado 1:";
    p.showTextXY(s, 40, 450);
-
-   s = "Jurado 2: ";
-   s += this->jurado2.getNombre();
+   s = this->jurado1.getNombre();
+   p.showTextXY(s, 180, 450);
+   
+   s = "Jurado 2:";
    p.showTextXY(s, 40, 425);
+   s = this->jurado2.getNombre();
+   p.showTextXY(s, 180, 425);
 
    s = "En atencion a que el Trabajo de Grado se distingue porque la calificacion del trabajo es superior a 4,50 y se destaca por dos condiciones (que indicamos) de las siguientes tres como se estipula en el articulo 7.6 de las"; 
    sv = p.wrapText(s, 540, true);
@@ -698,6 +773,7 @@ void Acta::generarPDF(){
    } else{
       cout << "(El archivo se genero correctamente)" << endl;
    }
+
    cout << endl;
 }
 

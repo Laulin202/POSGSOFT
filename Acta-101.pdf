@@ -1,0 +1,676 @@
+%PDF-1.1
+
+1 0 obj
+<<
+   /Type     /Font
+   /Subtype  /Type1
+   /BaseFont /Courier
+   /Encoding /WinAnsiEncoding
+>>
+endobj
+
+2 0 obj
+<<
+   /Type     /Font
+   /Subtype  /Type1
+   /BaseFont /Courier-Bold
+   /Encoding /WinAnsiEncoding
+>>
+endobj
+
+3 0 obj
+<<
+   /Type     /Font
+   /Subtype  /Type1
+   /BaseFont /Courier-Oblique
+   /Encoding /WinAnsiEncoding
+>>
+endobj
+
+4 0 obj
+<<
+   /Type     /Font
+   /Subtype  /Type1
+   /BaseFont /Courier-BoldOblique
+   /Encoding /WinAnsiEncoding
+>>
+endobj
+
+5 0 obj
+<<
+   /Type     /Font
+   /Subtype  /Type1
+   /BaseFont /Helvetica
+   /Encoding /WinAnsiEncoding
+>>
+endobj
+
+6 0 obj
+<<
+   /Type     /Font
+   /Subtype  /Type1
+   /BaseFont /Helvetica-Bold
+   /Encoding /WinAnsiEncoding
+>>
+endobj
+
+7 0 obj
+<<
+   /Type     /Font
+   /Subtype  /Type1
+   /BaseFont /Helvetica-Oblique
+   /Encoding /WinAnsiEncoding
+>>
+endobj
+
+8 0 obj
+<<
+   /Type     /Font
+   /Subtype  /Type1
+   /BaseFont /Helvetica-BoldOblique
+   /Encoding /WinAnsiEncoding
+>>
+endobj
+
+9 0 obj
+<<
+   /Type     /Font
+   /Subtype  /Type1
+   /BaseFont /Symbol
+   /Encoding /WinAnsiEncoding
+>>
+endobj
+
+10 0 obj
+<<
+   /Type     /Font
+   /Subtype  /Type1
+   /BaseFont /Times-Roman
+   /Encoding /WinAnsiEncoding
+>>
+endobj
+
+11 0 obj
+<<
+   /Type     /Font
+   /Subtype  /Type1
+   /BaseFont /Times-Bold
+   /Encoding /WinAnsiEncoding
+>>
+endobj
+
+12 0 obj
+<<
+   /Type     /Font
+   /Subtype  /Type1
+   /BaseFont /Times-Italic
+   /Encoding /WinAnsiEncoding
+>>
+endobj
+
+13 0 obj
+<<
+   /Type     /Font
+   /Subtype  /Type1
+   /BaseFont /Times-BoldItalic
+   /Encoding /WinAnsiEncoding
+>>
+endobj
+
+14 0 obj
+<<
+   /Type     /Font
+   /Subtype  /Type1
+   /BaseFont /ZapfDingbats
+   /Encoding /WinAnsiEncoding
+>>
+endobj
+
+15 0 obj
+<<
+   /Font <<
+      /F1 1 0 R
+      /F2 2 0 R
+      /F3 3 0 R
+      /F4 4 0 R
+      /F5 5 0 R
+      /F6 6 0 R
+      /F7 7 0 R
+      /F8 8 0 R
+      /F9 9 0 R
+      /F10 10 0 R
+      /F11 11 0 R
+      /F12 12 0 R
+      /F13 13 0 R
+      /F14 14 0 R
+   >>
+>>
+endobj
+
+16 0 obj
+<<
+   /Type /Catalog
+   /Pages 17 0 R
+>>
+endobj
+
+17 0 obj
+<<
+   /Type /Pages
+   /MediaBox [ 0 0 612 792 ]
+   /Count 4
+   /Kids [ 18 0 R 19 0 R 20 0 R 21 0 R ]
+>>
+endobj
+
+18 0 obj
+<<
+   /Type /Page
+   /Parent 17 0 R
+   /Contents 22 0 R
+   /Resources 15 0 R
+>>
+endobj
+
+19 0 obj
+<<
+   /Type /Page
+   /Parent 17 0 R
+   /Contents 23 0 R
+   /Resources 15 0 R
+>>
+endobj
+
+20 0 obj
+<<
+   /Type /Page
+   /Parent 17 0 R
+   /Contents 24 0 R
+   /Resources 15 0 R
+>>
+endobj
+
+21 0 obj
+<<
+   /Type /Page
+   /Parent 17 0 R
+   /Contents 25 0 R
+   /Resources 15 0 R
+>>
+endobj
+
+22 0 obj
+<<
+   /Length 2333
+>>
+stream
+BT
+/F6 14 Tf
+1 0 0 1 230 730 Tm
+(Facultad de Ingenieria) Tj
+1 0 0 1 230 715 Tm
+(Maestria en Ingenieria) Tj
+/F6 10 Tf
+1 0 0 1 40 690 Tm
+(ACTA: 101) Tj
+1 0 0 1 481 690 Tm
+(Fecha: 22/3/2021) Tj
+/F6 11 Tf
+1 0 0 1 180 660 Tm
+(ACTA DE EVALUACION DE TRABAJO DE GRADO) Tj
+/F5 11 Tf
+1 0 0 1 40 630 Tm
+(Trabajo de grado denominado: Jugamos Ligo Leyen?) Tj
+1 0 0 1 40 600 Tm
+(Autor:) Tj
+1 0 0 1 180 600 Tm
+(Laura Leon) Tj
+1 0 0 1 40 575 Tm
+(Periodo:) Tj
+1 0 0 1 180 575 Tm
+(2021-1) Tj
+1 0 0 1 40 550 Tm
+(Director:) Tj
+1 0 0 1 180 550 Tm
+(Luisa Rincon) Tj
+1 0 0 1 40 525 Tm
+(Co-Director:) Tj
+1 0 0 1 180 525 Tm
+(NA) Tj
+1 0 0 1 40 500 Tm
+(Enfasis en:) Tj
+1 0 0 1 180 500 Tm
+(Sistema y computacion) Tj
+1 0 0 1 40 475 Tm
+(Modalidad:) Tj
+1 0 0 1 180 475 Tm
+(Investigacion) Tj
+1 0 0 1 40 450 Tm
+(Jurado 1:) Tj
+1 0 0 1 180 450 Tm
+(Joancito Popoloko) Tj
+1 0 0 1 40 425 Tm
+(Jurado 2:) Tj
+1 0 0 1 180 425 Tm
+(Jhoan Buitrago) Tj
+1 0 0 1 40 390 Tm
+(En atencion al desarrollo de este Trabajo de Grado y al documento y sustentacion que presento el\(la\) autor\(a\),) Tj
+1 0 0 1 40 378 Tm
+(los  Jurados  damos  las  siguientes  calificaciones  parciales  y  observaciones  \(los  criterios  a  evaluar  y sus) Tj
+1 0 0 1 40 366 Tm
+(ponderaciones   se   estipulan  en  el  articulo  7.1  de  las  Directrices  para  Trabajo  de  Grado  de  Maestria\):) Tj
+/F6 11 Tf
+1 0 0 1 40 330 Tm
+(1.    Desarrollo y profundidad en el tratamiento del tema: ) Tj
+/F5 11 Tf
+1 0 0 1 40 310 Tm
+(      Calificacion Jurado 1: 4.50      Calificacion Jurado 2: 4.20) Tj
+1 0 0 1 470 310 Tm
+(Ponderacion: 20%) Tj
+1 0 0 1 40 290 Tm
+(      Observaciones: no) Tj
+1 0 0 1 40 275 Tm
+(      __________________________________________________________________________________) Tj
+1 0 0 1 40 255 Tm
+(      __________________________________________________________________________________) Tj
+/F6 11 Tf
+1 0 0 1 40 230 Tm
+(2.    Desafio academico y cientifico del tema:) Tj
+/F5 11 Tf
+1 0 0 1 40 210 Tm
+(      Calificacion Jurado 1: 4.50      Calificacion Jurado 2: 4.50) Tj
+1 0 0 1 470 210 Tm
+(Ponderacion: 15%) Tj
+1 0 0 1 40 190 Tm
+(      Observaciones: tal vez) Tj
+1 0 0 1 40 175 Tm
+(      __________________________________________________________________________________) Tj
+1 0 0 1 40 155 Tm
+(      __________________________________________________________________________________) Tj
+ET
+endstream
+endobj
+
+23 0 obj
+<<
+   /Length 3240
+>>
+stream
+BT
+/F6 14 Tf
+1 0 0 1 230 730 Tm
+(Facultad de Ingenieria) Tj
+1 0 0 1 230 715 Tm
+(Maestria en Ingenieria) Tj
+/F6 10 Tf
+1 0 0 1 40 690 Tm
+(ACTA: 101) Tj
+1 0 0 1 481 690 Tm
+(Fecha: 22/3/2021) Tj
+/F6 11 Tf
+1 0 0 1 40 660 Tm
+(3.    Cumplimiento de los objetivos propuestos: ) Tj
+/F5 11 Tf
+1 0 0 1 40 640 Tm
+(      Calificacion Jurado 1: 2.00      Calificacion Jurado 2: 1.00) Tj
+1 0 0 1 467 640 Tm
+(Ponderacion: 10% ) Tj
+1 0 0 1 40 620 Tm
+(      Observaciones: que gran mierda) Tj
+1 0 0 1 40 605 Tm
+(      __________________________________________________________________________________) Tj
+1 0 0 1 40 585 Tm
+(      __________________________________________________________________________________) Tj
+/F6 11 Tf
+1 0 0 1 40 560 Tm
+(4.    Creatividad e innovacion de las soluciones y desarrollos propuestos:) Tj
+/F5 11 Tf
+1 0 0 1 40 540 Tm
+(      Calificacion Jurado 1: 5.00      Calificacion Jurado 2: 1.00) Tj
+1 0 0 1 470 540 Tm
+(Ponderacion: 10%) Tj
+1 0 0 1 40 520 Tm
+(      Observaciones: masomenos) Tj
+1 0 0 1 40 505 Tm
+(      __________________________________________________________________________________) Tj
+1 0 0 1 40 485 Tm
+(      __________________________________________________________________________________) Tj
+/F6 11 Tf
+1 0 0 1 40 460 Tm
+(5.    Validez de los resultados y conclusiones:) Tj
+/F5 11 Tf
+1 0 0 1 40 440 Tm
+(      Calificacion Jurado 1: 3.40      Calificacion Jurado 2: 2.30) Tj
+1 0 0 1 470 440 Tm
+(Ponderacion: 20%) Tj
+1 0 0 1 40 420 Tm
+(      Observaciones: uhh integesante) Tj
+1 0 0 1 40 405 Tm
+(      __________________________________________________________________________________) Tj
+1 0 0 1 40 385 Tm
+(      __________________________________________________________________________________) Tj
+/F6 11 Tf
+1 0 0 1 40 360 Tm
+(6.    Manejo y procesamiento de la informacion y bibliografia:) Tj
+/F5 11 Tf
+1 0 0 1 40 340 Tm
+(      Calificacion Jurado 1: 1.50      Calificacion Jurado 2: 2.50) Tj
+1 0 0 1 470 340 Tm
+(Ponderacion: 10%) Tj
+1 0 0 1 40 320 Tm
+(      Observaciones: mmmm nope) Tj
+1 0 0 1 40 305 Tm
+(      __________________________________________________________________________________) Tj
+1 0 0 1 40 285 Tm
+(      __________________________________________________________________________________) Tj
+/F6 11 Tf
+1 0 0 1 40 260 Tm
+(7.    Calidad y presentacion del documento escrito:) Tj
+/F5 11 Tf
+1 0 0 1 40 240 Tm
+(      Calificacion Jurado 1: 3.50      Calificacion Jurado 2: 4.00) Tj
+1 0 0 1 467 240 Tm
+(Ponderacion: 7,5%) Tj
+1 0 0 1 40 220 Tm
+(      Observaciones: uWu) Tj
+1 0 0 1 40 205 Tm
+(      __________________________________________________________________________________) Tj
+1 0 0 1 40 185 Tm
+(      __________________________________________________________________________________) Tj
+/F6 11 Tf
+1 0 0 1 40 160 Tm
+(8.    Presentacion oral:) Tj
+/F5 11 Tf
+1 0 0 1 40 140 Tm
+(      Calificacion Jurado 1: 1.00      Calificacion Jurado 2: 1.50) Tj
+1 0 0 1 467 140 Tm
+(Ponderacion: 7,5%) Tj
+1 0 0 1 40 120 Tm
+(      Observaciones: a la mierda este trabajo) Tj
+1 0 0 1 40 105 Tm
+(      __________________________________________________________________________________) Tj
+1 0 0 1 40 85 Tm
+(      __________________________________________________________________________________) Tj
+ET
+endstream
+endobj
+
+24 0 obj
+<<
+   /Length 1513
+>>
+stream
+BT
+/F6 14 Tf
+1 0 0 1 230 730 Tm
+(Facultad de Ingenieria) Tj
+1 0 0 1 230 715 Tm
+(Maestria en Ingenieria) Tj
+/F6 11 Tf
+1 0 0 1 40 670 Tm
+(Como  resultado  de  estas  calificaciones  parciales y sus ponderaciones, la calificacion del Trabajo de) Tj
+1 0 0 1 40 658 Tm
+(Grado es: 3.14) Tj
+1 0 0 1 110 633 Tm
+(3.14) Tj
+1 0 0 1 310 633 Tm
+() Tj
+1 0 0 1 95 621 Tm
+(Numeros) Tj
+1 0 0 1 338 621 Tm
+(Letras) Tj
+/F5 11 Tf
+1 0 0 1 40 581 Tm
+(Observaciones adicionales:  ____________________________________________________________) Tj
+1 0 0 1 40 561 Tm
+(________________________________________________________________________________________) Tj
+1 0 0 1 40 541 Tm
+(________________________________________________________________________________________) Tj
+1 0 0 1 40 521 Tm
+(________________________________________________________________________________________) Tj
+1 0 0 1 40 451 Tm
+(La calificacion final quedas sujeta a que se implementen las siguientes correcciones: _______________) Tj
+1 0 0 1 40 431 Tm
+(________________________________________________________________________________________) Tj
+1 0 0 1 40 411 Tm
+(________________________________________________________________________________________) Tj
+1 0 0 1 40 391 Tm
+(________________________________________________________________________________________) Tj
+1 0 0 1 80 261 Tm
+(________________________________     _______________________________) Tj
+1 0 0 1 150 243 Tm
+(    Firma del Jurado1                                     Firma del Jurado2) Tj
+ET
+endstream
+endobj
+
+25 0 obj
+<<
+   /Length 3444
+>>
+stream
+BT
+/F6 14 Tf
+1 0 0 1 230 730 Tm
+(Facultad de Ingenieria) Tj
+1 0 0 1 230 715 Tm
+(Maestria en Ingenieria) Tj
+/F6 10 Tf
+1 0 0 1 40 690 Tm
+(ACTA: 101) Tj
+1 0 0 1 481 690 Tm
+(Fecha: 22/3/2021) Tj
+/F6 11 Tf
+1 0 0 1 120 660 Tm
+(RECOMENDACION DE MENCION DE HONOR AL TRABAJO DE GRADO) Tj
+/F5 11 Tf
+1 0 0 1 40 630 Tm
+(Trabajo de grado denominado: Jugamos Ligo Leyen?) Tj
+1 0 0 1 40 600 Tm
+(Autor:) Tj
+1 0 0 1 180 600 Tm
+(Laura Leon) Tj
+1 0 0 1 40 575 Tm
+(Periodo:) Tj
+1 0 0 1 180 575 Tm
+(2021-1) Tj
+1 0 0 1 40 550 Tm
+(Director:) Tj
+1 0 0 1 180 550 Tm
+(Luisa Rincon) Tj
+1 0 0 1 40 525 Tm
+(Co-Director:) Tj
+1 0 0 1 180 525 Tm
+(NA) Tj
+1 0 0 1 40 500 Tm
+(Enfasis en:) Tj
+1 0 0 1 180 500 Tm
+(Sistema y computacion) Tj
+1 0 0 1 40 475 Tm
+(Modalidad:) Tj
+1 0 0 1 180 475 Tm
+(Investigacion) Tj
+1 0 0 1 40 450 Tm
+(Jurado 1:) Tj
+1 0 0 1 180 450 Tm
+(Joancito Popoloko) Tj
+1 0 0 1 40 425 Tm
+(Jurado 2:) Tj
+1 0 0 1 180 425 Tm
+(Jhoan Buitrago) Tj
+1 0 0 1 40 390 Tm
+(En  atencion  a  que  el Trabajo de Grado se distingue porque la calificacion del trabajo es superior a 4,50 y se) Tj
+1 0 0 1 40 378 Tm
+(destaca  por  dos  condiciones \(que indicamos\) de las siguientes tres como se estipula en el articulo 7.6 de las) Tj
+1 0 0 1 40 366 Tm
+(Directrices para Trabajo de Grado de Maestria:) Tj
+45 353 m
+44 355 l
+43 355 l
+42 355 l
+41 353 l
+42 351 l
+43 351 l
+44 351 l
+45 353 l
+f
+45 353 m
+44 355 l
+43 355 l
+42 355 l
+41 353 l
+42 351 l
+43 351 l
+44 351 l
+45 353 l
+S
+1 0 0 1 40 350 Tm
+(         El estudiante supero los objetivos propuestos.) Tj
+45 335 m
+44 337 l
+43 337 l
+42 337 l
+41 335 l
+42 333 l
+43 333 l
+44 333 l
+45 335 l
+f
+45 335 m
+44 337 l
+43 337 l
+42 337 l
+41 335 l
+42 333 l
+43 333 l
+44 333 l
+45 335 l
+S
+1 0 0 1 40 332 Tm
+(         El estudiante demostro una profundidad destacable en el conocimiento y tratamiento del tema.) Tj
+45 317 m
+44 319 l
+43 319 l
+42 319 l
+41 317 l
+42 315 l
+43 315 l
+44 315 l
+45 317 l
+f
+45 317 m
+44 319 l
+43 319 l
+42 319 l
+41 317 l
+42 315 l
+43 315 l
+44 315 l
+45 317 l
+S
+1 0 0 1 40 314 Tm
+(         El tema ofrecia una dificultad superior a lo ordinario.) Tj
+1 0 0 1 40 294 Tm
+(Los jurados recomendamos que el Consejo de la Facultad otogue Mencion de Honor a este Trabajo de Grado,) Tj
+1 0 0 1 40 278 Tm
+(y motivamos esta recomendacion con base en las siguientes apreciaciones:) Tj
+1 0 0 1 40 258 Tm
+(_______________________________________________________________________________) Tj
+1 0 0 1 40 218 Tm
+(________________________________              _________________________________) Tj
+1 0 0 1 40 200 Tm
+(                         Firma del Jurado1                                       Firma del Jurado2) Tj
+/F6 11 Tf
+1 0 0 1 40 170 Tm
+(Decision del Consejo de la Facultad:) Tj
+/F5 11 Tf
+1 0 0 1 40 150 Tm
+(En virtud de las condiciones que indicaron los Jurados y su motivacion, el Consejo de la Facultad decidio lo) Tj
+1 0 0 1 40 138 Tm
+(siguiente:) Tj
+45 125 m
+44 127 l
+43 127 l
+42 127 l
+41 125 l
+42 123 l
+43 123 l
+44 123 l
+45 125 l
+f
+45 125 m
+44 127 l
+43 127 l
+42 127 l
+41 125 l
+42 123 l
+43 123 l
+44 123 l
+45 125 l
+S
+1 0 0 1 40 122 Tm
+(         Conceder Mencion de Honor al Proyecto de Grado____) Tj
+45 113 m
+44 115 l
+43 115 l
+42 115 l
+41 113 l
+42 111 l
+43 111 l
+44 111 l
+45 113 l
+f
+45 113 m
+44 115 l
+43 115 l
+42 115 l
+41 113 l
+42 111 l
+43 111 l
+44 111 l
+45 113 l
+S
+1 0 0 1 40 110 Tm
+(         No Conceder Mencion de Honor al Proyecto de Grado____) Tj
+1 0 0 1 40 94 Tm
+(Tal y como se consigna en el Acta No.del Consejo de la Facultad.) Tj
+ET
+endstream
+endobj
+
+xref
+0 26
+0000000000 65535 f 
+0000000010 00000 n 
+0000000123 00000 n 
+0000000241 00000 n 
+0000000362 00000 n 
+0000000487 00000 n 
+0000000602 00000 n 
+0000000722 00000 n 
+0000000845 00000 n 
+0000000972 00000 n 
+0000001084 00000 n 
+0000001202 00000 n 
+0000001319 00000 n 
+0000001438 00000 n 
+0000001561 00000 n 
+0000001680 00000 n 
+0000001955 00000 n 
+0000002013 00000 n 
+0000002134 00000 n 
+0000002231 00000 n 
+0000002328 00000 n 
+0000002425 00000 n 
+0000002522 00000 n 
+0000004912 00000 n 
+0000008209 00000 n 
+0000009779 00000 n 
+trailer
+<<
+   /Size 26
+   /Root 16 0 R
+>>
+startxref
+13280
+%%EOF
