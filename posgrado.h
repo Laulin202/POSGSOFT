@@ -46,6 +46,7 @@ class Posgrado{
         void mostrarInternosExternos();
         void eliminarActa();
         void mostrarCriterios();
+        void mostrarListaActasAbiertasCerradas();
         void generarPDF();
 };
 

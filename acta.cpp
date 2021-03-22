@@ -2,9 +2,14 @@
 
 //CONSTRUCTOR CLASE ACTA
 
-//por defecto
+//Por defecto
 Acta::Acta(){}
-
+/*
+Nombre: Acta
+Funcion: Contruye el acta con parametros
+Entrada: int, string, string, string, tipoTrabajoGrado, string, Persona, Persona, Persona, Persona.
+Salida: N/A
+*/
 Acta::Acta(int numero, string nombreTrabajo, string nombreEstudiante, string fecha, tipoTrabajoGrado tipoTrabajo, string periodo, Persona director, Persona codirector, Persona jurado1, Persona jurado2){
     this->numero = numero;
     this->nombreTrabajo = nombreTrabajo;
@@ -24,6 +29,12 @@ Acta::Acta(int numero, string nombreTrabajo, string nombreEstudiante, string fec
     this->inicializarListaCriterios();
 }
 
+/*
+Nombre: inicializarListaCriterio
+Funcion: Se encarga de crear cada uno de los 8 criterios y agregarlos a la listaCriterios
+Entrada: N/A
+Salida: N/A
+*/
 void Acta::inicializarListaCriterios(){
     int identificador;
     float porcentajePonderacion;
@@ -71,12 +82,24 @@ void Acta::inicializarListaCriterios(){
 
 //METODOS CLASE ACTA
 
+/*
+Nombre: mostrarCriterios
+Funcion: Recorre la lista de criterios llamando a la funcion mostrarCriterio de cada uno.
+Entrada: N/A
+Salida: N/A
+*/
 void Acta::mostrarCriterios(){
     for(int i = 0; i < this->listaCriterios.size(); i++){
         this->listaCriterios[i].mostrarCriterio();
     }
-} //funcion de prueba
+}
 
+/*
+Nombre: mostrarActa
+Funcion: Se encarga de mostrar en consola la informacion necesaria de un acta.
+Entrada: N/A
+Salida: N/A
+*/
 void Acta::mostrarActa(){
 
     cout << "=================================================" << endl;
@@ -111,11 +134,24 @@ void Acta::mostrarActa(){
     cout << "=================================================" << endl;
 }
 
+/*
+Nombre: getNumero
+Funcion: Retorna el numero del acta.
+Entrada: N/A
+Salida: int
+*/
 int Acta::getNumero(){
     return this->numero;
 }
 
+/*
+Nombre: diligenciarCriterios
+Funcion: Se recorre la lista de criterios pidiendo al usuario las respectivas calificaciones y observaciones, guardando estos datos en la lista DetallesCriterios y actualizando la nota final del acta.
+Entrada: N/A
+Salida: N/A
+*/
 void Acta::diligenciarCriterios(){
+    bool continuar = true;
     float calificacionJurado1, calificacionJurado2, promedioCalificacion;
     string observacion;
     Criterio criterio;
@@ -136,30 +172,55 @@ void Acta::diligenciarCriterios(){
 
         promedioCalificacion = ((calificacionJurado1 + calificacionJurado2)/2) * criterio.getPorcentajePonderacion();
         cout << "El promedio de calificacion del criterio es: " << promedioCalificacion << endl;
-
-        cout << "Digite observaciones " << endl;
-        cin.ignore(100, '\n');
-        getline(cin, observacion);
+        do{
+            try{
+                cout << "Digite observaciones (max. 220 caracteres):" << endl;
+                cin.ignore(100, '\n');
+                getline(cin, observacion);
+                if(observacion.size() > 220){
+                    throw;
+                }
+                continuar = false;
+            } catch(...){
+                cout << "Las obserrvaciones superaron el limite de caracteres, reintentelo." << endl;
+            }
+        } while(continuar);
 
         this->listaDetallesCriterios.push_back(DetalleCriterio( criterio ,calificacionJurado1, calificacionJurado2, promedioCalificacion, observacion));
 
         this->notaFinal += promedioCalificacion;
     }
+    continuar = true;
     cout << " La nota final es: " << this->notaFinal << endl;
     cout << "Desea añadir comentarios especiales?\n1. Si\n2.No" << endl;
     cin >> opcion;
-    if( opcion == 1){
-        cout << " Por favor digite el comentario: " << endl;
-        cin.ignore(100, '\n');
-        getline(cin, this->comentariosEspeciales);
+    if( opcion == 1 ){
+        do{
+            try{
+                cout << " Por favor digite el comentario: " << endl;
+                cin.ignore(100, '\n');
+                getline(cin, this->comentariosEspeciales);
+                if(this->comentariosEspeciales.size() > 283){
+                    throw;
+                }
+                continuar = false;
+            } catch(...){
+                cout << "Los comentarios superaron el limite de caracteres, reintentelo." << endl;
+            }
+        } while( continuar );
     }
     else{
         cout << " Se ha finalizado correctamente el proceso para su acta! " << endl;
     }
     this->actualizarEstadoCalificacionActa();
-
 }
 
+/*
+Nombre: actualizarEstadoCalificacionActa
+Funcion: Actualiza el estado de calificacion del acta a aprobado, pendiente o rechazado dependiendo de la calificacion y los comentarios especiales.
+Entrada: N/A
+Salida: N/A
+*/
 void Acta::actualizarEstadoCalificacionActa(){
     if( this->notaFinal >= 3.5 ){
         if( this->comentariosEspeciales == " " ){
@@ -174,18 +235,42 @@ void Acta::actualizarEstadoCalificacionActa(){
     }
 }
 
+/*
+Nombre: getTipoTrabajo
+Funcion: Retorna el tipo de trabajo del acta de grado (Aplicado o Investigacion).
+Entrada: N/A
+Salida: enum tipoTrabajoGrado
+*/
 tipoTrabajoGrado Acta::getTipoTrabajo(){
     return this->tipoTrabajo;
 }
 
+/*
+Nombre: getDirector
+Funcion: Retorna un objeto director de clase Persona (si el integer es 1) o un objeto codirector de clase Persona (si el integer no es 1).
+Entrada: int
+Salida: class Persona
+*/
 Persona Acta::getDirector(int n){
     return n == 1 ? this->director : this->codirector;
 }
 
+/*
+Nombre: getJurado
+Funcion: Retorna un objeto jurado1 de clase Persona (si el integer es 1) o un objeto jurado2 de clase Persona (si el integer no es 1).
+Entrada: int
+Salida: class Persona
+*/
 Persona Acta::getJurado(int n){
     return n == 1 ? this->jurado1 : this->jurado2;
 }
 
+/*
+Nombre: cerrarActa
+Funcion: Actualiza el estado del acta a cerrado si el acta se encuentra pendiente.
+Entrada: N/A
+Salida: N/A
+*/
 void Acta::cerrarActa(){
     int op;
     if( this->estadoActa == cerrado){
@@ -198,52 +283,50 @@ void Acta::cerrarActa(){
             if( op == 1 ){
                 this->estadoActa = cerrado;
             }
+        } else{
+            this->estadoActa = cerrado;
         }
     }
 }
 
+/*
+Nombre: getEstadoCalificacionActa
+Funcion: Retorna el estado de calificacion del acta (aprobado, pendiente o rechazado).
+Entrada: N/A
+Salida: enum estadoCalificacionActa
+*/
 estadoCalificacionActa Acta::getEstadoCalificacionActa(){
     return this->estadoCalificacion;
 }
 
+/*
+Nombre: getEstadoActa
+Funcion: Retorna el estado del acta (abierto o cerrado).
+Entrada: N/A
+Salida: enum estado
+*/
 estado Acta::getEstadoActa(){
     return this->estadoActa;
 }
 
+/*
+Nombre: mostrarDetallesCriterios
+Funcion: Recorre la listaDetallesCriterios para mostrar la informacion necesaria de cada uno.
+Entrada: N/A
+Salida: N/A
+*/
 void Acta::mostrarDetallesCriterios(){
     for(int i = 0; i < this->listaDetallesCriterios.size(); i++){
-        this->listaDetallesCriterios[i].mostrarDetalleCriterio(); //pendiente crear 
+        this->listaDetallesCriterios[i].mostrarDetalleCriterio(); 
     }
 }
-
-static bool getLines(const string &fileName, vector<string> &lines, string &errMsg){
-   ifstream in;
-   in.open(fileName.c_str(), ios::binary);
-   if(!in){
-      errMsg = "Could not open: [" + fileName + "]";
-      return(false);
-   }
-   string line = "";
-   for(;;)
-   {
-      char c = (char)in.get();
-      if(in.eof()){
-         if(line != "")
-            lines.push_back(line);
-         break;
-      }
-      line += c;
-      if(c == '\n'){
-         lines.push_back(line);
-         line = "";
-      }
-   }
-   in.close();
-   return(true);
-}
-
+/*
+Nombre: generarPDF
+Funcion: Se encarga de crear un objeto de clase PDF en el cual se utilizan diversas funcionalidades de la libreria pdf.h para manejar el pdf e ir agregandole todo lo necesario, finalmente se escribe el pdf en el archivo con el nombre determinado al inicio de la funcion teniendo en cuenta el numero del acta.
+Entrada: N/A
+Salida: N/A
+*/
 void Acta::generarPDF(){
-
    ostringstream out;
    out << "Acta-" << this->numero << ".pdf";
    string nombreArchivo = out.str();
@@ -346,21 +429,30 @@ void Acta::generarPDF(){
 // CRITERIO 1
    p.setFont(PDF::HELVETICA, 11);
 
-   s = "      Calificacion Jurado 1: ";
+   s = "Calificacion Jurado 1: ";
    s += std::__cxx11::to_string(this->listaDetallesCriterios[0].getCalificacionJurado(1)).erase(4,4);
-   s += "      Calificacion Jurado 2: ";
+   s += "     Calificacion Jurado 2: ";
    s += std::__cxx11::to_string(this->listaDetallesCriterios[0].getCalificacionJurado(2)).erase(4,4);
-   p.showTextXY(s, 40, 310);
+   p.showTextXY(s, 58, 310);
 
    s = "Ponderacion: 20%";
    p.rightJustifyTextXY(s, 560, 310);
 
-   s = "      Observaciones: ";
+   s = "Observaciones: ";
    s += this->listaDetallesCriterios[0].getObservacion();
-   p.showTextXY(s, 40, 290);
-   s = "      __________________________________________________________________________________";
+   if(s.size() > 70){
+       sv = p.wrapText(s, 500, true);
+       for(int i = 0; i < sv.size(); i++){
+           p.showTextXY(sv[i], 58, 290 -  20 * i);
+       }
+   } else{
+       p.showTextXY(s, 58, 290);
+   }
+   s = "                          _____________________________________________________________________";
+   p.showTextXY(s, 58, 290);
+   s = "__________________________________________________________________________________";
    for(int i = 0; i < 2; i++){
-       p.showTextXY(s, 40, 275 - 20 * i);
+       p.showTextXY(s, 58, 270 - 20 * i);
    }
 
 // CRITERIO 2
@@ -371,21 +463,30 @@ void Acta::generarPDF(){
 
    p.setFont(PDF::HELVETICA, 11);
 
-   s = "      Calificacion Jurado 1: ";
+   s = "Calificacion Jurado 1: ";
    s += std::__cxx11::to_string(this->listaDetallesCriterios[1].getCalificacionJurado(1)).erase(4,4);
-   s += "      Calificacion Jurado 2: ";
+   s += "     Calificacion Jurado 2: ";
    s += std::__cxx11::to_string(this->listaDetallesCriterios[1].getCalificacionJurado(2)).erase(4,4);
-   p.showTextXY(s, 40, 210);
+   p.showTextXY(s, 58, 210);
 
    s = "Ponderacion: 15%";
    p.rightJustifyTextXY(s, 560, 210);
 
-   s = "      Observaciones: ";
+   s = "Observaciones: ";
    s += this->listaDetallesCriterios[1].getObservacion();
-   p.showTextXY(s, 40, 190);
-   s = "      __________________________________________________________________________________";
+   if(s.size() > 70){
+       sv = p.wrapText(s, 500, true);
+       for(int i = 0; i < sv.size(); i++){
+           p.showTextXY(sv[i], 58, 190 -  20 * i);
+       }
+   } else{
+       p.showTextXY(s, 58, 190);
+   }
+   s = "                          _____________________________________________________________________";
+   p.showTextXY(s, 58, 190);
+   s = "__________________________________________________________________________________";
    for(int i = 0; i < 2; i++){
-       p.showTextXY(s, 40, 175 - 20 * i);
+       p.showTextXY(s, 58, 170 - 20 * i);
    }
 
    p.newPage();
@@ -418,21 +519,30 @@ void Acta::generarPDF(){
 
    p.setFont(PDF::HELVETICA, 11);
 
-   s = "      Calificacion Jurado 1: ";
+   s = "Calificacion Jurado 1: ";
    s += std::__cxx11::to_string(this->listaDetallesCriterios[2].getCalificacionJurado(1)).erase(4,4);
-   s += "      Calificacion Jurado 2: ";
+   s += "     Calificacion Jurado 2: ";
    s += std::__cxx11::to_string(this->listaDetallesCriterios[2].getCalificacionJurado(2)).erase(4,4);
-   p.showTextXY(s, 40, 640);
+   p.showTextXY(s, 58, 640);
 
    s = "Ponderacion: 10% ";
    p.rightJustifyTextXY(s, 560, 640);
 
-   s = "      Observaciones: ";
+   s = "Observaciones: ";
    s += this->listaDetallesCriterios[2].getObservacion();
-   p.showTextXY(s, 40, 620);
-   s = "      __________________________________________________________________________________";
+   if(s.size() > 70){
+       sv = p.wrapText(s, 500, true);
+       for(int i = 0; i < sv.size(); i++){
+           p.showTextXY(sv[i], 58, 620 -  20 * i);
+       }
+   } else{
+       p.showTextXY(s, 58, 620);
+   }
+   s = "                          _____________________________________________________________________";
+   p.showTextXY(s, 58, 620);
+   s = "__________________________________________________________________________________";
    for(int i = 0; i < 2; i++){
-       p.showTextXY(s, 40, 605 - 20 * i);
+       p.showTextXY(s, 58, 600 - 20 * i);
    }
 
 //CRITERIO 4
@@ -443,21 +553,30 @@ void Acta::generarPDF(){
 
    p.setFont(PDF::HELVETICA, 11);
 
-   s = "      Calificacion Jurado 1: ";
+   s = "Calificacion Jurado 1: ";
    s += std::__cxx11::to_string(this->listaDetallesCriterios[3].getCalificacionJurado(1)).erase(4,4);
-   s += "      Calificacion Jurado 2: ";
+   s += "     Calificacion Jurado 2: ";
    s += std::__cxx11::to_string(this->listaDetallesCriterios[3].getCalificacionJurado(2)).erase(4,4);
-   p.showTextXY(s, 40, 540);
+   p.showTextXY(s, 58, 540);
 
    s = "Ponderacion: 10%";
    p.rightJustifyTextXY(s, 560, 540);
 
-   s = "      Observaciones: ";
+   s = "Observaciones: ";
    s += this->listaDetallesCriterios[3].getObservacion();
-   p.showTextXY(s, 40, 520);
-   s = "      __________________________________________________________________________________";
+   if(s.size() > 70){
+       sv = p.wrapText(s, 500, true);
+       for(int i = 0; i < sv.size(); i++){
+           p.showTextXY(sv[i], 58, 520 -  20 * i);
+       }
+   } else{
+       p.showTextXY(s, 58, 520);
+   }
+   s = "                          _____________________________________________________________________";
+   p.showTextXY(s, 58, 520);
+   s = "__________________________________________________________________________________";
    for(int i = 0; i < 2; i++){
-       p.showTextXY(s, 40, 505 - 20 * i);
+       p.showTextXY(s, 58, 500 - 20 * i);
    }
 
 //CRITERIO 5
@@ -468,21 +587,30 @@ void Acta::generarPDF(){
 
    p.setFont(PDF::HELVETICA, 11);
 
-   s = "      Calificacion Jurado 1: ";
+   s = "Calificacion Jurado 1: ";
    s += std::__cxx11::to_string(this->listaDetallesCriterios[4].getCalificacionJurado(1)).erase(4,4);
-   s += "      Calificacion Jurado 2: ";
+   s += "     Calificacion Jurado 2: ";
    s += std::__cxx11::to_string(this->listaDetallesCriterios[4].getCalificacionJurado(2)).erase(4,4);
-   p.showTextXY(s, 40, 440);
+   p.showTextXY(s, 58, 440);
 
    s = "Ponderacion: 20%";
    p.rightJustifyTextXY(s, 560, 440);
 
-   s = "      Observaciones: ";
+   s = "Observaciones: ";
    s += this->listaDetallesCriterios[4].getObservacion();
-   p.showTextXY(s, 40, 420);
-   s = "      __________________________________________________________________________________";
+   if(s.size() > 70){
+       sv = p.wrapText(s, 500, true);
+       for(int i = 0; i < sv.size(); i++){
+           p.showTextXY(sv[i], 58, 420 -  20 * i);
+       }
+   } else{
+       p.showTextXY(s, 58, 420);
+   }
+   s = "                          _____________________________________________________________________";
+   p.showTextXY(s, 58, 420);
+   s = "__________________________________________________________________________________";
    for(int i = 0; i < 2; i++){
-       p.showTextXY(s, 40, 405 - 20 * i);
+       p.showTextXY(s, 58, 400 - 20 * i);
    }
 
 //CRITERIO 6
@@ -493,21 +621,30 @@ void Acta::generarPDF(){
 
    p.setFont(PDF::HELVETICA, 11);
 
-   s = "      Calificacion Jurado 1: ";
+   s = "Calificacion Jurado 1: ";
    s += std::__cxx11::to_string(this->listaDetallesCriterios[5].getCalificacionJurado(1)).erase(4,4);
-   s += "      Calificacion Jurado 2: ";
+   s += "     Calificacion Jurado 2: ";
    s += std::__cxx11::to_string(this->listaDetallesCriterios[5].getCalificacionJurado(2)).erase(4,4);
-   p.showTextXY(s, 40, 340);
+   p.showTextXY(s, 58, 340);
 
    s = "Ponderacion: 10%";
    p.rightJustifyTextXY(s, 560, 340);
 
-   s = "      Observaciones: ";
+   s = "Observaciones: ";
    s += this->listaDetallesCriterios[5].getObservacion();
-   p.showTextXY(s, 40, 320);
-   s = "      __________________________________________________________________________________";
+   if(s.size() > 70){
+       sv = p.wrapText(s, 500, true);
+       for(int i = 0; i < sv.size(); i++){
+           p.showTextXY(sv[i], 58, 320 -  20 * i);
+       }
+   } else{
+       p.showTextXY(s, 58, 320);
+   }
+   s = "                          _____________________________________________________________________";
+   p.showTextXY(s, 58, 320);
+   s = "__________________________________________________________________________________";
    for(int i = 0; i < 2; i++){
-       p.showTextXY(s, 40, 305 - 20 * i);
+       p.showTextXY(s, 58, 300 - 20 * i);
    }
 
 //CRITERIO 7
@@ -518,21 +655,30 @@ void Acta::generarPDF(){
 
    p.setFont(PDF::HELVETICA, 11);
 
-   s = "      Calificacion Jurado 1: ";
+   s = "Calificacion Jurado 1: ";
    s += std::__cxx11::to_string(this->listaDetallesCriterios[6].getCalificacionJurado(1)).erase(4,4);
-   s += "      Calificacion Jurado 2: ";
+   s += "     Calificacion Jurado 2: ";
    s += std::__cxx11::to_string(this->listaDetallesCriterios[6].getCalificacionJurado(2)).erase(4,4);
-   p.showTextXY(s, 40, 240);
+   p.showTextXY(s, 58, 240);
 
    s = "Ponderacion: 7,5%";
    p.rightJustifyTextXY(s, 560, 240);
 
-   s = "      Observaciones: ";
+   s = "Observaciones: ";
    s += this->listaDetallesCriterios[6].getObservacion();
-   p.showTextXY(s, 40, 220);
-   s = "      __________________________________________________________________________________";
+   if(s.size() > 70){
+       sv = p.wrapText(s, 500, true);
+       for(int i = 0; i < sv.size(); i++){
+           p.showTextXY(sv[i], 58, 220 -  20 * i);
+       }
+   } else{
+       p.showTextXY(s, 58, 220);
+   }
+   s = "                          _____________________________________________________________________";
+   p.showTextXY(s, 58, 220);
+   s = "__________________________________________________________________________________";
    for(int i = 0; i < 2; i++){
-       p.showTextXY(s, 40, 205 - 20 * i);
+       p.showTextXY(s, 58, 200 - 20 * i);
    }
 
 //CRITERIO 8
@@ -543,23 +689,31 @@ void Acta::generarPDF(){
 
    p.setFont(PDF::HELVETICA, 11);
 
-   s = "      Calificacion Jurado 1: ";
+   s = "Calificacion Jurado 1: ";
    s += std::__cxx11::to_string(this->listaDetallesCriterios[7].getCalificacionJurado(1)).erase(4,4);
-   s += "      Calificacion Jurado 2: ";
+   s += "     Calificacion Jurado 2: ";
    s += std::__cxx11::to_string(this->listaDetallesCriterios[7].getCalificacionJurado(2)).erase(4,4);
-   p.showTextXY(s, 40, 140);
+   p.showTextXY(s, 58, 140);
 
    s = "Ponderacion: 7,5%";
    p.rightJustifyTextXY(s, 560, 140);
 
-   s = "      Observaciones: ";
+   s = "Observaciones: ";
    s += this->listaDetallesCriterios[7].getObservacion();
-   p.showTextXY(s, 40, 120);
-   s = "      __________________________________________________________________________________";
-   for(int i = 0; i < 2; i++){
-       p.showTextXY(s, 40, 105 - 20 * i);
+   if(s.size() > 70){
+       sv = p.wrapText(s, 500, true);
+       for(int i = 0; i < sv.size(); i++){
+           p.showTextXY(sv[i], 58, 120 -  20 * i);
+       }
+   } else{
+       p.showTextXY(s, 58, 120);
    }
-
+   s = "                          _____________________________________________________________________";
+   p.showTextXY(s, 58, 120);
+   s = "__________________________________________________________________________________";
+   for(int i = 0; i < 2; i++){
+       p.showTextXY(s, 58, 100 - 20 * i);
+   }
 
    p.newPage();
    p.setFont(PDF::HELVETICA_BOLD, 14);
@@ -582,10 +736,10 @@ void Acta::generarPDF(){
    s += std::__cxx11::to_string(this->notaFinal).erase(4,4);
    p.showTextXY(s, 40, 658);
 
-   s = std::__cxx11::to_string(this->notaFinal).erase(4,4); //probando
+   s = std::__cxx11::to_string(this->notaFinal).erase(4,4);
    p.showTextXY(s, 110, 633);
 
-   s = ""; //probando
+   s = ""; 
    p.showTextXY(s, 310, 633);
 
    s = "Numeros";
@@ -595,19 +749,26 @@ void Acta::generarPDF(){
    p.showTextXY(s, 338, 621);
 
    p.setFont(PDF::HELVETICA, 11);
-   s = "Observaciones adicionales: ";
+   s = "Observaciones adicionales:";
    s += this->comentariosEspeciales;
-   for(int i = 0; i < 61 - this->comentariosEspeciales.length(); i++){
-       s += extra;
+   if(s.size() > 58){
+       sv = p.wrapText(s, 480, true);
+       for(int i = 0; i < sv.size(); i++){
+           p.showTextXY(sv[i], 40, 581 -  20 * i);
+       }
+   } else{
+       p.showTextXY(s, 40, 581);
    }
+   s = "                                              _________________________________________________________________";
    p.showTextXY(s, 40, 581);
+
    s = "________________________________________________________________________________________";
    for(int i = 0; i < 3; i++){
        p.showTextXY(s, 40, 561 - 20 * i);
    }
 
    s = "La calificacion final quedas sujeta a que se implementen las siguientes correcciones: ";
-   for(int i = 0; i < 15; i++){
+   for(int i = 0; i < 20; i++){
        s += extra;
    }
    p.showTextXY(s, 40, 451);
@@ -684,7 +845,7 @@ void Acta::generarPDF(){
    p.showTextXY(s, 180, 500);
 
    s = "Modalidad:";
-   p.showTextXY(s, 40, 475);
+   p.showTextXY(s, 40, 475);           
    s = this->tipoTrabajo == 0 ? "Aplicado" : "Investigacion";
    p.showTextXY(s, 180, 475);
    
@@ -763,9 +924,6 @@ void Acta::generarPDF(){
    s = "Tal y como se consigna en el Acta No.";
    s += "del Consejo de la Facultad.";
    p.showTextXY(s, 40, 94);
-
-
-
 
    string errMsj;
    if(!p.writeToFile(nombreArchivo, errMsj)){

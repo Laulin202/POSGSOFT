@@ -501,6 +501,42 @@ void Posgrado::mostrarCriterios(){
 
 }
 
+void Posgrado::mostrarListaActasAbiertasCerradas(){
+    int selec, cont = 0;;
+    bool continuar = true;
+    do{
+        try{
+            cout << "Desea ver la lista de actas abiertas o cerradas (1/2): ";
+            cin >> selec;
+            if(selec != 1 && selec != 2){
+                throw;
+            }
+            if(selec == 1){
+                cout << "oliwi\n";
+                for( int i = 0; i < this->listaActas.size(); i++ ){
+                    if( this->listaActas[i].getEstadoActa() == abierto){
+                        this->listaActas[i].mostrarActa();
+                        cont++;
+                    }
+                }
+            } else{
+                for( int i = 0; i < this->listaActas.size(); i++ ){
+                    if( this->listaActas[i].getEstadoActa() == cerrado){
+                        this->listaActas[i].mostrarActa();
+                        cont++;
+                    }
+                }
+            }
+            if(cont == 0){
+                cout << "No se encontraron actas en ese estado :(." << endl;
+            }
+            continuar = false;
+        } catch(...){
+            cout << "Seleccione una opcion valida." << endl;
+        }
+    } while( continuar );
+}
+
 void Posgrado::generarPDF(){
     Acta* pActa;
     int numero;
@@ -514,7 +550,11 @@ void Posgrado::generarPDF(){
         cout << "Lo siento, no se pudo encontrar el acta " << endl;
     }
     else{
-        pActa->generarPDF();
+        if(pActa->getEstadoActa() == abierto){
+            cout << "El acta no se encuentra cerrada, por lo tanto no se puede generar el PDF." << endl;
+        } else{
+            pActa->generarPDF();
+        }
     }
 
 }
