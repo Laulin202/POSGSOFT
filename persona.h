@@ -35,6 +35,7 @@ class Persona{
         clasePersonaEvaluar getClasePersona();
         void setJurado();
         bool validarJurado();
+        string getNombre();
 };
 
 //Todo lo relacionado a persona aun lo tengo muy en duda porque necesito tu aprobacion y eso xd

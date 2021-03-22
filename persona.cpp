@@ -47,4 +47,7 @@ bool Persona::validarJurado(){
     return this->jurado;
 }
 
+string Persona::getNombre(){
+    return this->nombre;
+}
 
