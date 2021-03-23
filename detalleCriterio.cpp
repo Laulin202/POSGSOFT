@@ -28,13 +28,13 @@ Salida: n/a
 void DetalleCriterio::mostrarDetalleCriterio(){
     
     this->criterio.mostrarCriterio();
-    cout << "-------------------------------------| " << endl;
-    cout << "Calificacion jurado 1:               | " << this->calificacionJurado1 << endl;
-    cout << "-------------------------------------| " << this->calificacionJurado1 << endl;
-    cout << "Calificacion jurado 2:               | " << this->calificacionJurado2 << endl;
-    cout << "-------------------------------------| " << endl;
-    cout << "Promedio clasificacion del criterio  | " << this->promedioCalificacion << endl;
-    cout << "-------------------------------------| " << endl;
+    cout << "\033[1;36m-------------------------------------|\033[0m " << endl;
+    cout << "Calificacion jurado 1:               \033[1;36m|\033[0m " << this->calificacionJurado1 << endl;
+    cout << "\033[1;36m-------------------------------------|\033[0m " << this->calificacionJurado1 << endl;
+    cout << "Calificacion jurado 2:               \033[1;36m|\033[0m " << this->calificacionJurado2 << endl;
+    cout << "\033[1;36m-------------------------------------|\033[0m " << endl;
+    cout << "Promedio clasificacion del criterio  \033[1;36m|\033[0m " << this->promedioCalificacion << endl;
+    cout << "\033[1;36m-------------------------------------|\033[0m " << endl;
     cout << "Observaciones:                        " << endl;
     cout << this->observacion << endl;
 

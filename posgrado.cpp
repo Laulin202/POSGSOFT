@@ -50,7 +50,7 @@ void Posgrado::crearActa(){
     getline(cin, nombreTrabajo);
 
     do{
-        cout << "Seleccione el tipo de trabajo:\n0. Aplicado\n1. Investigacion" << endl;
+        cout << "Seleccione el tipo de trabajo:\n\033[1;32m0.\033[0m Aplicado\n\033[1;32m1.\033[0m Investigacion" << endl;
         cin >> selec;
         if(selec == 0){
             tipoTrabajo = aplicado;
@@ -69,7 +69,7 @@ void Posgrado::crearActa(){
         try{
             cout << "Seleccione el director (o en su defecto puede agregar uno): " << endl;
             this->mostrarListaPersonas();
-            cout << "0. Agregar director" << endl;
+            cout << "\033[1;32m0.\033[0m Agregar director" << endl;
             cin >> selec;
             if(selec < 0 || selec > this->listaPersonas.size()){
                 throw 1;
@@ -88,14 +88,14 @@ void Posgrado::crearActa(){
 
     //Apartado Codirector
     continuar = true;
-    cout << "Desea agregar un codirector?\n1. Si\n2. No" << endl;
+    cout << "Desea agregar un codirector?\n\033[1;32m1.\033[0m Si\n\033[1;32m2.\033[0m No" << endl;
     cin >> selec;
     if(selec == 1){
         do{
             try{
                 cout << "Seleccione el codirector (o en su defecto puede agregar uno): " << endl;
                 this->mostrarListaPersonas();
-                cout << "0. Agregar codirector" << endl;
+                cout << "\033[1;32m0.\033[0m Agregar codirector" << endl;
                 cin >> selec;
                 if(selec < 0 || selec > this->listaPersonas.size()){
                     throw 1;
@@ -129,7 +129,7 @@ void Posgrado::crearActa(){
         try{
             cout << "Seleccione el jurado numero 1 (o en su defecto puede agregar uno): " << endl;
             this->mostrarListaPersonas();
-            cout << "0. Agregar jurado" << endl;
+            cout << "\033[1;32m0.\033[0m Agregar jurado" << endl;
             cin >> selec;
             if(selec < 0 || selec > this->listaPersonas.size()){
                 throw 1;
@@ -169,7 +169,7 @@ void Posgrado::crearActa(){
         try{
             cout << "Seleccione el jurado numero 2 (o en su defecto puede agregar uno): " << endl;
             this->mostrarListaPersonas();
-            cout << "0. Agregar jurado" << endl;
+            cout << "\033[1;32m0.\033[0m Agregar jurado" << endl;
             cin >> selec;
             if(selec < 0 || selec > this->listaPersonas.size()){
                 throw 1;
@@ -227,7 +227,7 @@ void Posgrado::mostrarListaPersonas(){
         cout << "Por el momento no se encuentran personas registradas en el sistema, proceda a agregar." << endl;
     } else{
         for(int i = 0; i < this->listaPersonas.size(); i++){
-            cout << i + 1 << ". ";
+            cout << "\033[1;32m" << i + 1 << ".\033[0m ";
             this->listaPersonas[i].mostrarNombre();
             cout << endl;
         }

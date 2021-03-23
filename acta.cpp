@@ -102,7 +102,7 @@ Salida: N/A
 */
 void Acta::mostrarActa(){
 
-    cout << "=================================================" << endl;
+    cout << "\033[1;36m=================================================\033[0m" << endl;
     cout << "        "<< this->nombreTrabajo << "            "<< endl;
     cout << " Estudiante: " << this->nombreEstudiante << endl;
     cout << " Fecha: " << this->fecha << endl;
@@ -131,7 +131,7 @@ void Acta::mostrarActa(){
     else
         cout << "rechazado";
     cout << endl;
-    cout << "=================================================" << endl;
+    cout << "\033[1;36m=================================================\033[0m" << endl;
 }
 
 /*

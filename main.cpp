@@ -16,28 +16,27 @@ using std::ios;
 using std::ifstream;
 
 
-
 int menu(){
     int opcion, nActas;
-    cout << " BIENVENIDO A LA OFICINA DE POSGRADOS DE INGENIERA DE SOFTWARE, POR FAVOR DIGITE SU OPCION:" << endl;
-    cout << "1. Crear acta de grado" << endl;
-    cout << "2. Modificar acta de grado" << endl;
-    cout << "3. Mostrar lista Personas" << endl;
-    cout << "4. Mostrar lista actas " << endl;
-    cout << "5. Mostrar trabajos de grado de tipo aplicado " << endl;
-    cout << "6. Mostrar trabajos de grado de tipo investigacion " << endl;
-    cout << "7. Mostrar trabajos de grado dirigidos por una persona " << endl;
-    cout << "8. Mostrar trabajos de grado de los que ha sido jurado una persona " << endl;
-    cout << "9. Mostrar todos los jurados de las actas registradas " << endl;
-    cout << "10. Consultar actas pendientes o rechazadas " << endl;
-    cout << "11. Crear informacion persona " << endl;
-    cout << "12. Consultar lista de jurados internos o externos " << endl;
-    cout << "13. Eliminar acta " << endl;
-    cout << "14. Mostrar Criterios " << endl;
-    cout << "15. Mostrar lista actas cerradas o abiertas " << endl;
-    cout << "16. Generar pdf " << endl;
-    cout << "0. Salir\n" << endl;
-    cout << "Digita el numero: ";
+    cout << " \033[1;31mBIENVENIDO A LA OFICINA DE POSGRADOS DE INGENIERA DE SOFTWARE, POR FAVOR DIGITE SU OPCION:\033[0m" << endl;
+    cout << "\033[1;32m1.\033[0m Crear acta de grado" << endl;
+    cout << "\033[1;32m2.\033[0m Modificar acta de grado" << endl;
+    cout << "\033[1;32m3.\033[0m Mostrar lista Personas" << endl;
+    cout << "\033[1;32m4.\033[0m Mostrar lista actas " << endl;
+    cout << "\033[1;32m5.\033[0m Mostrar trabajos de grado de tipo aplicado " << endl;
+    cout << "\033[1;32m6.\033[0m Mostrar trabajos de grado de tipo investigacion " << endl;
+    cout << "\033[1;32m7.\033[0m Mostrar trabajos de grado dirigidos por una persona " << endl;
+    cout << "\033[1;32m8.\033[0m Mostrar trabajos de grado de los que ha sido jurado una persona " << endl;
+    cout << "\033[1;32m9.\033[0m Mostrar todos los jurados de las actas registradas " << endl;
+    cout << "\033[1;32m10.\033[0m Consultar actas pendientes o rechazadas " << endl;
+    cout << "\033[1;32m11.\033[0m Crear informacion persona " << endl;
+    cout << "\033[1;32m12.\033[0m Consultar lista de jurados internos o externos " << endl;
+    cout << "\033[1;32m13.\033[0m Eliminar acta " << endl;
+    cout << "\033[1;32m14.\033[0m Mostrar Criterios " << endl;
+    cout << "\033[1;32m15.\033[0m Mostrar lista actas cerradas o abiertas " << endl;
+    cout << "\033[1;32m16.\033[0m Generar pdf " << endl;
+    cout << "\033[1;32m0.\033[0m Salir\n" << endl;
+    cout << "\033[1;32mDigita el numero: \033[0m";
     cin >> opcion;
     return opcion;
 }
